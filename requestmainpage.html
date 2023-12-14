@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Request Main Page</title>
+    </head>
+    <body>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    
+</head>
+
+<body class="bg-gray-200 font-[Roboto]">
+    <!-- Navigation Bar -->
+    <nav class="navbar flex justify-between items-center p-4 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hamburger Icon -->
+            <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars text-red-700" class="w-6 h-6 rounded-md"></i>
+            </span>
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+        </a>
+
+        <div class="flex items-center">
+           
+
+            <!-- Notification Bell Icon -->
+            <div class="flex items-center rounded-md px-6 duration-300 cursor-pointer">
+                <i class="fa-regular fa-bell text-red-700" class="w-10 h-10 rounded-full"></i>
+            </div>
+
+
+            <!-- User Name and Role -->
+            <div class="ml-1 text-right">
+                <p class="text-sm mr-3">Jessa Reyes</p>
+                <p class="text-xs text-gray-500 mr-3">CSWD ADMIN</p>
+            </div>
+
+            <!-- Profile Avatar -->
+            <div class="flex items-center">
+                <img src="images/avatar_sample.png" alt="Profile Avatar" class="w-10 h-10 rounded-full">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Title and Button aligned to left-->
+    <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl ml-4">
+        <!-- Title and Button Container -->
+        <div class="flex justify-between items-center">
+            <!-- Title -->
+            <h2 class="text-2xl font-bold text-black">Request Donation Form</h2>
+
+            <!-- Request Donation Button -->
+            <a href="requestdonationform.html">
+                <button class="bg-green-500 hover:bg-green-700 text-white py-2 px-8 rounded-xl transition duration-300">Request Donation</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Centered White Container -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-gray-300 border p-6 rounded-lg shadow-2xl shadow-blue-200 blue-shadow w-full max-w-4xl ml-4 mt-4">
+
+        <!-- Gray Container with Gray Border -->
+        <div class="bg-gray-100 border-gray-400 border p-4 rounded-md mb-4">
+            <!-- Item details -->
+            <div class="flex justify-between">
+                <!-- Left side: Item Description -->
+                <div class="ml-4 flex flex-row items-center">
+                    <span class="font-bold text-black mr-2">Item:</span>
+                    <span class="mr-4">Food Pack</span>
+                    <span class="font-bold text-black mr-4">|</span>
+                    <span class="font-bold text-black mr-2">Quantity:</span>
+                    <span class="mr-4">300</span>
+                    <span class="font-bold text-black mr-4">|</span>
+                    <span class="font-bold text-black mr-2">Date Requested:</span>
+                    <span>October 20, 2023</span>
+                </div>
+
+                <!-- Right side: Buttons -->
+                <div class="flex items-start mr-4">
+                    <button class="bg-red-500 text-white py-2 px-4 rounded mr-2">Pending</button>
+                    <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grey Divider -->
+        <hr class="border-t border-gray-400 mb-4">
+
+        <!-- Gray Container with Gray Border -->
+        <div class="bg-gray-100 border-gray-400 border p-4 rounded-md mb-4">
+            <!-- Item details -->
+            <div class="flex justify-between">
+                <!-- Left side: Item Description -->
+                <div class="ml-4 flex flex-row items-center">
+                    <span class="font-bold text-black mr-2">Item:</span>
+                    <span class="mr-4">Food Pack</span>
+                    <span class="font-bold text-black mr-4">|</span>
+                    <span class="font-bold text-black mr-2">Quantity:</span>
+                    <span class="mr-4">300</span>
+                    <span class="font-bold text-black mr-4">|</span>
+                    <span class="font-bold text-black mr-2">Date Requested:</span>
+                    <span>October 20, 2023</span>
+                </div>
+
+                <!-- Right side: Buttons -->
+                <div class="flex items-start mr-4">
+                    <button class="bg-red-500 text-white py-2 px-4 rounded mr-2">Pending</button>
+                    <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grey Divider -->
+        <hr class="border-t border-gray-400 mb-4">
+
+        <!-- Gray Container with Gray Border -->
+        <div class="bg-gray-100 border-gray-400 border p-4 rounded-md">
+            <!-- Item details -->
+            <div class="flex justify-between">
+                <!-- Left side: Item Description -->
+                <div class="ml-4 flex flex-row items-center">
+                    <span class="font-bold text-black mr-2">Item:</span>
+                    <span class="mr-4">Food Pack</span>
+                    <span class="font-bold text-black mr-4">|</span>
+                    <span class="font-bold text-black mr-2">Quantity:</span>
+                    <span class="mr-4">300</span>
+                    <span class="font-bold text-black mr-4">|</span>
+                    <span class="font-bold text-black mr-2">Date Requested:</span>
+                    <span>October 20, 2023</span>
+                </div>
+
+                <!-- Right side: Buttons -->
+                <div class="flex items-start mr-4">
+                    <button class="bg-red-500 text-white py-2 px-4 rounded mr-2">Pending</button>
+                    <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">View Details</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen mr-4">
+        <div class="text-gray-100 text-xl">
+            <div class="p-2.5 mt-1 flex items-center rounded-md ">
+                <!-- Logo in Sidebar -->
+                <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+                <!-- Close Icon in Sidebar -->
+               
+            </div>
+            <hr class="my-2 text-gray-600">
+
+            <!-- Sidebar Menu -->
+            <div>
+                <!-- Dashboard Link -->
+                <a href="requestmainpage.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                        <i class="fa-regular fa-envelope-open text-blue-700 group-hover:text-white"></i>
+                        <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Request</span>
+                    </div>
+                </a>
+                
+
+                <!-- Request Link -->
+                <a href="donations.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                        <i class="fa-solid fa-box-open text-blue-700 group-hover:text-white"></i>
+                        <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Donations</span>
+                    </div>
+                </a>
+
+                <!-- Account Setting Link -->
+                <a href="reqaccountsettings.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                        <i class="fa-solid fa-gear text-blue-700 group-hover:text-white"></i>
+                        <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Account Settings</span>
+                    </div>
+                </a>
+
+                <!-- Logout Link -->
+                <div
+                    class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                    <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-blue-700 group-hover:text-white"></i>
+                    <a href="index.html">
+                        <span class="text-[15px]  ml-4 text-blue-700 group-hover:text-white">Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+    </body>
+</html>

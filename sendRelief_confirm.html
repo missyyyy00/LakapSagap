@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Relief Confirm</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+<body>
+<div class = "font-[Roboto]">
+    <!-- Navigation start -->
+    <nav class="navbar top-0 left-0 right-0 flex justify-between items-center p-1 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hidden Hamburger Icon -->
+            <span class="absolute text-white text-2xl top-6 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars-staggered text-red-700"></i>
+            </span>
+          </a>
+
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 ml-10">
+        
+        <div class="flex items-center">
+            <!-- Search Bar for Larger Screens -->
+            <div class="hidden md:flex relative flex items-center mr-10  ml-40">
+              <input type="text" id="searchInput" placeholder="Search"
+              class="pl-12 pr-20 py-1 border rounded-full focus:outline-none focus:border-red-700">
+                <button type="button" class="absolute left-2">
+                    <i class="fa fa-search text-gray-500 ml-3"></i>
+                </button>
+            </div>
+        </div>
+
+            <!-- Search Icon for Smaller Screens -->
+            <div class="md:hidden flex">
+                <button class="search-button px-2" type="button" id="searchIconBtn">
+                    <i class="fa fa-search text-gray-500 ml-2"></i>
+                </button>
+            </div>
+
+            <!--Hidden Search Bar-->
+            <div class="search-bar hidden">
+                <input type="text" id="searchInput" placeholder="Search"
+                    class="pl-12 pr-10 py-1 border rounded-full focus:outline-none focus:border-red-700">
+            </div>
+
+           
+            <div class="flex flex-shrink-0 items-center ml-auto">
+               <!-- Notification Bell Icon -->
+                  <button class="relative p-2 text-red-700 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full mr-2">
+                    <span class="sr-only">Notifications</span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </button>
+                <!-- Profile Avatar -->
+                <a href="adminSettings.html">
+                <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+                  <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+                    <span class="font-semibold">Jessa De Reyes</span>
+                    <span class="text-sm text-gray-600">CSWD ADMIN</span>
+                  </div>
+                  <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                    <img src="images/avatar_sample.png" alt="user profile photo" class="h-full w-full object-cover">
+                  </span>
+                </button>
+                </a>
+            </div>
+    </nav>
+    <!-- Navigation End -->
+
+   <!-- Sidebar Menu Start -->
+   <div class="sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 lg:left-0 left-[-300px]  duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen lg:block">
+    <div class="text-gray-100 text-xl">
+        <div class="p-2.5 mt-1 flex items-center rounded-md ">
+            <!-- Logo in Sidebar -->
+            <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+            <!-- Close Icon in Sidebar -->
+            <i class="fa-solid fa-xmark ml-4 mb-10 cursor-pointer lg:hidden text-red-700" onclick="Openbar()"></i>
+        </div>
+        
+        <hr class="my-2 text-gray-600">
+
+        <div>
+          <!-- Dashboard Link -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                <a href="admindashboard.html">
+                <i class="fa-solid fa-house text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Dashboard</span>
+                </a>
+            </div>
+
+            <!-- Request Link -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                <a href="adminRequest.html">
+                <i class="fa-solid fa-hand-holding-hand text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Request</span>
+              </a>
+            </div>
+
+            <!-- Warehouse -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+              <i class="fa-solid fa-warehouse text-red-700 group-hover:text-white"></i>
+              <div class="flex justify-between w-full items-center" onclick="toggleDropdown('stocks')">
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Warehouse</span>
+                  <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-stocks">
+                      <i class="fa-solid fa-angle-up"></i>
+                  </span>
+              </div>
+            </div>
+
+          <!-- Warehouse Stocks Management Link  -->
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto " id="submenu-stocks">
+              <a href="adminStockManage.html"> 
+              <h1 class="cursor-pointer p-2 text-white group-hover:text-white rounded-md mt-1 bg-red-700">
+                    Stock Management
+                </h1>
+              </a>
+            </div>
+          <!-- Warehouse Kitting Link  -->
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto " id="submenu-kitting">
+              <a href="adminKiting.html"> 
+              <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                    Kitting
+                </h1>
+              </a>
+            </div>
+
+          <!-- Administrator Dropdown -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+              <i class="fa-solid fa-user-shield text-red-700 group-hover:text-white"></i>
+                <div class="flex justify-between w-full items-center" onclick="toggleDropdown('administrator')">
+                    <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Administrator</span>
+                    <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-administrator">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </span>
+                </div>
+            </div>
+
+          <!-- Administrator Dropdown Content -->
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-user-management">
+              <a href="adminControl.html"> 
+              <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                    User Management
+                </h1>
+              </a>
+            </div>
+
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-request-confirmation">
+              <a href="adminConfirm.html"> 
+              <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                    Request Confirmation
+                </h1>
+              </a>
+            </div>
+
+            <!-- History Link -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+              <a href="adminHistory.html"> 
+              <i class="fa-solid fa-clipboard text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">History</span>
+              </a>
+            </div>
+
+            <!-- Account Setting Link -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+              <a href="adminSettings.html"> 
+              <i class="fa-solid fa-gear text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Account Setting</span>
+              </a>
+            </div>
+
+            <!-- Logout Link -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black" >
+                <a href="index.html">
+              <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-red-700 group-hover:text-white"></i>
+                    <span class="text-[15px]  ml-4 text-red-700 group-hover:text-white">Logout</span>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- end of sidebar -->
+
+  <!-- main content -->
+    <div class="p-2 w-80 md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 ">
+        <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6 p-4 gap-10">
+
+        <!-- form content -->
+        <div class="bg-white border-t-8 border-red-700  shadow-md shadow-red/5 p-6 rounded-md">
+          <div class="flex justify-between mb-1 items-start">
+              <div class="text-2xl font-bold text-red-700">Confirmation of sending relief</div> 
+
+               <!-- export icon -->
+              <i class="fa-solid fa-download text-1xl text-blue-800 inline-block cursor-pointer ml-auto inline-block"> </i>
+                <p class="ml-3 text-blue-800 lowercase-text cursor-pointer inline-block">Export Receipt</p>
+          </div>
+          
+           <!-- details  -->
+          <div class="overflow-x-auto">
+            <p class="text-lg font-bold font-sans inline-block">Reason: </p>
+            <p class="text-lg font-bold font-sans inline-block ml-2"> 209 Family Kit for Fire victims in Maysan, Malinta</p>
+            <div>
+              <p class="mt-3 font-bold text-gray-700 text-sm inline-block"> Receiver: </p>
+              <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> Kap. Ronaldo Sodela </p>
+              </div>
+              <div>
+                <p class="mt-3 font-bold text-gray-700 text-sm inline-block">Organization: </p>
+                <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> Barangay Karuhatan</p>
+                </div>
+                <div>
+                  <p class="mt-3 font-bold text-gray-700 text-sm inline-block"> Type of Kit: </p>
+                  <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> Family Kit </p>
+                  </div>
+                  <div>
+                    <p class="mt-3 font-bold text-gray-700 text-sm inline-block">Quantity: </p>
+                    <p class="mt-3 font-medium text-gray-700 text-sm inline-block"> 209 </p>
+                    </div>
+
+            <!-- attachment section  -->
+            <b class="mt-10 text-sm font-bold leading-6 text-gray-700">Attachment/s</b>
+            <div class="px-2 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dd class="mt-2 text-sm text-gray-900 space-y-6 w-80 sm:col-span-2 sm:mt-0">
+                     
+                      <div class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                          <div class="flex w-0 flex-1 items-center">
+                              <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                  <path fill-rule="evenodd"
+                                      d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                      clip-rule="evenodd" />
+                              </svg>
+                              <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                  <span class="truncate font-medium">Kap. Ronaldo E-Signature</span>
+                                  <span class="flex-shrink-0 text-gray-400">4.5mb</span>
+                              </div>
+                          </div>
+                          <div class="ml-4 flex-shrink-0 ">
+                              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                <i class="fa-solid fa-download mr-8"></i>
+                              </a>
+                          </div>
+                      </div>
+                    
+                  </dd>
+            </div>
+
+            <div class="flex justify-between">
+                <path
+                  d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                ></path>
+              </svg>
+
+              <!-- buttons  -->
+              <div class="text-sm flex gap-2">
+                <a href="sendRelief.html">
+                <button class="cursor-pointer transition-all 
+                    bg-red-700 text-white px-8 py-2 rounded-lg
+                    border-red-800
+                    border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                    active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-red-300 shadow-green-300 active:shadow-none">
+                    Back
+                    </button></a>
+
+                    <a href="adminStockManage.html">
+                    <button class="cursor-pointer transition-all 
+                    bg-green-700 text-white px-6 py-2 rounded-lg
+                    border-green-800
+                    border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                    active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                    Confirm
+                    </button>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+       <!-- Dropdown Menu Toggle Function -->
+      <script>
+        // Toggle dropdown menu visibility
+        function toggleDropdown(type) {
+            // Toggle visibility for the specified dropdown
+            if (type === 'stocks') {
+                document.querySelector('#submenu-stocks').classList.toggle('hidden');
+                document.querySelector('#submenu-kitting').classList.toggle('hidden');
+                document.querySelector('#arrow-stocks').classList.toggle('rotate-0');
+            } else if (type === 'administrator') {
+                document.querySelector('#submenu-user-management').classList.toggle('hidden');
+                document.querySelector('#submenu-request-confirmation').classList.toggle('hidden');
+                document.querySelector('#arrow-administrator').classList.toggle('rotate-0');
+            }
+        }
+      </script>
+
+      <!-- Dropdown for Status -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get references to the dropdown button and the dropdown content
+            const dropdownBtn = document.getElementById("statusDropdownBtn");
+            const dropdown = document.getElementById("statusDropdown");
+
+            // Event listener to toggle the dropdown visibility when the button is clicked
+            dropdownBtn.addEventListener("click", function () {
+                dropdown.classList.toggle("hidden");
+            });
+
+            // Event listener to close the dropdown when clicking outside the dropdown content
+            window.addEventListener("click", function (event) {
+                if (!event.target.matches("#statusDropdownBtn") && !event.target.matches("#statusDropdown")) {
+                    dropdown.classList.add("hidden");
+                }
+            });
+        });
+      </script>
+
+      <script>
+        // JavaScript to toggle the dropdown
+        const button = document.getElementById('dropdown-button');
+      const menu = document.getElementById('dropdown-menu');
+
+
+      button.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          searchInput.value = ''; // Clear the search input when the dropdown is opened
+      });
+
+      document.addEventListener('click', (event) => {
+          if (!button.contains(event.target) && !menu.contains(event.target)) {
+              menu.classList.add('hidden');
+          }
+      });
+      </script>
+
+        <!-- Sidebar Functions -->
+        <script>
+            // Function to handle icon click
+            function handleIconClick() {
+                // Add functionality as needed
+            }
+    
+            // Function to toggle sidebar visibility
+            function Openbar() {
+                document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+            }
+        </script>
+        </body>
+    </html>

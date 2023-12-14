@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+<body class = "font-[Roboto]">
+    <!-- Navigation start -->
+    <nav class="navbar top-0 left-0 right-0 flex justify-between items-center p-1 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hidden Hamburger Icon -->
+            <span class="absolute text-white text-2xl top-6 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars-staggered text-red-700"></i>
+            </span>
+          </a>
+
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+        
+        <div class="flex items-center">
+          
+            <div class="flex flex-shrink-0 items-center ml-auto">
+               <!-- Notification Bell Icon -->
+                  <button class="relative p-2 text-red-700 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full mr-2">
+                    <span class="sr-only">Notifications</span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </button>
+                <!-- Profile Avatar -->
+                <a href="adminSettings.html">
+                <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+                  <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+                    <span class="font-semibold">Jessa De Reyes</span>
+                    <span class="text-sm text-gray-600">CSWD ADMIN</span>
+                  </div>
+                  <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                    <img src="images/avatar_sample.png" alt="user profile photo" class="h-full w-full object-cover">
+                  </span>
+                </button>
+                </a>
+            </div>
+    </nav>
+    <!-- Navigation End -->
+
+    
+    <!-- Sidebar Menu Start -->
+    <div class="sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 lg:left-0 left-[-300px]  duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen lg:block">
+      <div class="text-gray-100 text-xl">
+          <div class="p-2.5 mt-1 flex items-center rounded-md ">
+              <!-- Logo in Sidebar -->
+              <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+              <!-- Close Icon in Sidebar -->
+              <i class="fa-solid fa-xmark ml-4 mb-10 cursor-pointer lg:hidden text-red-700" onclick="Openbar()"></i>
+          </div>
+          
+          <hr class="my-2 text-gray-600">
+
+          <div>
+            <!-- Dashboard Link -->
+            <a href="admindashboard.html"></a>
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                  <i class="fa-solid fa-house text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Dashboard</span>
+              </div>
+            </a>
+
+              <!-- Request Link -->
+            <a href="adminRequest.html">
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                  <i class="fa-solid fa-hand-holding-hand text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Request</span>
+              </div>
+            </a>
+
+              <!-- Warehouse -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-warehouse text-red-700 group-hover:text-white"></i>
+                <div class="flex justify-between w-full items-center" onclick="toggleDropdown('stocks')">
+                    <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Warehouse</span>
+                    <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-stocks">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </span>
+                </div>
+              </div>
+
+            <!-- Warehouse Stocks Management Link  -->
+            <a href="adminStockManage.html"> 
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-stocks">
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Stock Management
+                  </h1>
+              </div>
+            </a>
+
+            <!-- Warehouse Kitting Link  -->
+            <a href="adminKiting.html">
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-kitting">
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Kitting
+                  </h1>
+              </div>
+            </a>
+
+            <!-- Administrator Dropdown -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-user-shield text-red-700 group-hover:text-white"></i>
+                  <div class="flex justify-between w-full items-center" onclick="toggleDropdown('administrator')">
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Administrator</span>
+                      <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-administrator">
+                          <i class="fa-solid fa-angle-up"></i>
+                      </span>
+                  </div>
+              </div>
+
+            <!-- Administrator Dropdown Content -->
+            <a href="adminControl.html"> 
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-user-management">
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      User Management
+                  </h1>
+              </div>
+            </a>
+
+            <a href="adminConfirm.html"> 
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-request-confirmation">
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Request Confirmation
+                  </h1>
+              </div>
+            </a>
+
+              <!-- History Link -->
+            <a href="adminHistory.html"> 
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-red-700">
+                <i class="fa-solid fa-clipboard text-white group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-white group-hover:text-white">History</span>
+              </div>
+            </a>
+
+              <!-- Account Setting Link -->
+            <a href="adminSettings.html"> 
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                <i class="fa-solid fa-gear text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Account Setting</span>
+              </div>
+            </a>
+
+              <!-- Logout Link -->
+            <a href="index.html">
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black" >
+                <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px]  ml-4 text-red-700 group-hover:text-white">Logout</span>
+              </div>
+            </a>
+
+          </div>
+      </div>
+    </div>
+    <!-- end of sidebar -->
+
+    <!-- main content -->
+    <div class="p-2 w-full md:w-[calc(100%-256px)] md:h-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 space-y-6">
+      <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6  p-4 gap-10">
+        <div class="bg-white shadow-md shadow-black/5 p-6 rounded-md">
+
+            <div class="flex justify-between mb-1 items-start">
+                <div class=" text-3xl font-bold ml-2 inline-block text-gray-700">History</div>
+            </div>
+              
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-[540px]">   <!-- History Table -->
+                    <thead>
+                        <tr>
+                          <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Date and Time</th>
+                            <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Category</th>
+                            <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-2 text-left">Description</th>
+                           
+                            <div class="border-b border-gray-300 my-4">
+                        </tr>
+                    </thead>
+            </div>
+
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                                <div class="flex items-center  mt-3">
+                                    
+                                  <span class="text-gray-600 text-sm font-regular ">11/23/2023 - 11:00 PM</span>
+                                </div>
+                            </td>
+
+                            <td class="py-2 px-4 border-b border-b-gray-50">
+                              
+                              <a href="#" class="text-gray-600 text-sm font-medium">Donation Receive</a>
+                            
+                            </td>
+
+                            <td class="py-2 px-2 md:w-2/4 border-b border-b-gray-50">
+                              <span class="text-gray-600 text-sm font-medium ">Caloocan city LGU donated 1000 packs of hygiene kit.</span>
+                            </td>
+
+                            <!-- Link for more details -->
+                            <td class="py-2 px-4 md:px-4 border-b border-b-gray-50">
+                              <a href="#" class="text-sm font-medium text-blue-700 cursor-pointer"><u>View Full Details</u></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination Section -->
+            <div class="hidden mt-3 sm:flex sm:flex-1 sm:items-center lg:justify-end sm:justify-between">
+              <div class="pagination-container relative z-40">
+                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                    <a href="#" class="pagination-link inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                        <span class="sr-only">Previous</span>
+                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- ... (pagination links) ... -->
+                    <a href="#" aria-current="page" class="pagination-link z-10 inline-flex items-center bg-green-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">1</a>
+                    <a href="#" class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+                    <a href="#" class="pagination-link hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+                    <span class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+            
+                    <a href="#" class="pagination-link inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                        <span class="sr-only">Next</span>
+                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </nav>
+              </div>
+            </div>
+      </div>
+    </div>
+
+
+<!-- Dropdown Menu Toggle Function -->
+  <script>
+    // Toggle dropdown menu visibility
+    function toggleDropdown(type) {
+        // Toggle visibility for the specified dropdown
+        if (type === 'stocks') {
+            document.querySelector('#submenu-stocks').classList.toggle('hidden');
+            document.querySelector('#submenu-kitting').classList.toggle('hidden');
+            document.querySelector('#arrow-stocks').classList.toggle('rotate-0');
+        } else if (type === 'administrator') {
+            document.querySelector('#submenu-user-management').classList.toggle('hidden');
+            document.querySelector('#submenu-request-confirmation').classList.toggle('hidden');
+            document.querySelector('#arrow-administrator').classList.toggle('rotate-0');
+        }
+    }
+    </script>
+
+    <!-- Sidebar Functions -->
+    <script>
+        // Function to handle icon click
+        function handleIconClick() {
+            // Add functionality as needed
+        }
+
+        // Function to toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+
+  </body>
+</html>

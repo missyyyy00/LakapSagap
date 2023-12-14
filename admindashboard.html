@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+<body class = "font-[Roboto]">
+    <!-- Navigation start -->
+    <nav class="navbar top-0 left-0 right-0 flex justify-between items-center p-1 bg-white shadow">
+      <a href="#" class="flex items-center">
+          <!-- Hidden Hamburger Icon -->
+          <span class="absolute text-white text-2xl top-6 left-4 cursor-pointer" onclick="Openbar()">
+              <i class="fa-solid fa-bars-staggered text-red-700"></i>
+          </span>
+        </a>
+
+          <!-- Logo -->
+          <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 ml-10 mr-auto">
+      
+      <div class="flex items-center">
+          <div class="flex flex-shrink-0 items-center ml-auto">
+             <!-- Notification Bell Icon -->
+                <button class="relative p-2 text-red-700 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full mr-2">
+                  <span class="sr-only">Notifications</span>
+                  <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                  <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                  <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                </button>
+              <!-- Profile Avatar -->
+              <a href="adminSettings.html">
+              <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+                <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+                  <span class="font-semibold">Jessa De Reyes</span>
+                  <span class="text-sm text-gray-600">CSWD ADMIN</span>
+                </div>
+                <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                  <img src="images/avatar_sample.png" alt="user profile photo" class="h-full w-full object-cover">
+                </span>
+              </button>
+              </a>
+          </div>
+  </nav>
+  <!-- Navigation End -->
+
+    <!-- Sidebar Menu Start -->
+    <div class="sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 lg:left-0 left-[-300px]  duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen lg:block">
+      <div class="text-gray-100 text-xl">
+          <div class="p-2.5 mt-1 flex items-center rounded-md ">
+              <!-- Logo in Sidebar -->
+              <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+            
+          </div>
+          
+          <hr class="my-2 text-gray-600">
+    
+          
+          <div>
+            <!-- Dashboard Link -->
+            <a href="admindashboard.html">
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-red-700 "> 
+                  <i class="fa-solid fa-house text-white group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-white group-hover:text-white">Dashboard</span>
+              </div>
+            </a>
+    
+              <!-- Request Link -->
+            <a href="adminRequest.html">
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                  <i class="fa-solid fa-hand-holding-hand text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Request</span>
+              </div>
+            </a>
+    
+              <!-- Warehouse -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-warehouse text-red-700 group-hover:text-white"></i>
+                <div class="flex justify-between w-full items-center" onclick="toggleDropdown('stocks')">
+                    <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Warehouse</span>
+                    <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-stocks">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </span>
+                </div>
+              </div>
+    
+            <!-- Warehouse Stocks Management Link  -->
+            <a href="adminStockManage.html"> 
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-stocks">
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Stock Management
+                  </h1>
+              </div>
+            </a>
+
+            <!-- Warehouse Kitting Link  -->
+            <a href="adminKiting.html"> 
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-kitting"> 
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Kitting
+                  </h1>
+              </div>
+            </a>
+    
+            <!-- Administrator Dropdown -->
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-user-shield text-red-700 group-hover:text-white"></i>
+                  <div class="flex justify-between w-full items-center" onclick="toggleDropdown('administrator')">
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Administrator</span>
+                      <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-administrator">
+                          <i class="fa-solid fa-angle-up"></i>
+                      </span>
+                  </div>
+              </div>
+    
+            <!-- Administrator Dropdown Content -->
+            <a href="adminControl.html"> 
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-user-management">
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      User Management
+                  </h1>
+              </div>
+            </a>
+            
+            <a href="adminConfirm.html"> 
+              <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-request-confirmation"> 
+                <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                      Request Confirmation
+                  </h1>
+              </div>
+            </a>
+    
+              <!-- History Link -->
+            <a href="adminHistory.html"> 
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                <i class="fa-solid fa-clipboard text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">History</span>
+              </div>
+            </a>
+    
+              <!-- Account Setting Link -->
+            <a href="adminSettings.html">
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                <i class="fa-solid fa-gear text-red-700 group-hover:text-white"></i>
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Account Setting</span>
+              </div>
+            </a>
+    
+              <!-- Logout Link -->
+            <a href="index.html">
+              <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black" >
+                <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px]  ml-4 text-red-700 group-hover:text-white">Logout</span>
+              </div>
+            </a>
+            
+          </div>
+      </div>
+    </div>
+    <!-- end of sidebar -->
+
+     <!-- main content -->
+     <div class="p-2 w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 ">
+
+      <div class="card w-60 h-10 mr-5 mt-2 ml-auto bg-white rounded-xl shadow-2xl">
+        <div class="flex items-center justify-center p-2">
+          <h6 class="font-bold text-gray-500"> December 1, 2023 </h6>
+        </div>
+      </div>
+      <!--Grid starts here-->
+        <div class="ml-2 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 p-4 gap-10 ">
+          
+          <!--Pending card-->
+          <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm cursor-default ">
+            <div class="flex items-center">
+                <div>
+                    <div class="text-md text-gray-700">Pending Requests Relief</div>
+                      <div class="flex items-center pt-3">
+                          <div class="text-5xl font-bold text-red-700">12</div>
+                      </div>
+                   
+                    <div class="flex items-center">
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">4 From shelter</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">|</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 ml-1">8 From Barangay</div>
+                    </div>
+                </div>
+            </div>
+
+          <!--Pending Icon-->
+            <div class="px-4">
+              <i class="fa-solid fa-circle-exclamation text-red-700 text-4xl"></i>
+            </div>
+          </div>
+
+          <!--Sent Donations card-->
+          <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm cursor-default">
+            <div class="flex items-center"> 
+                <div>
+                    <div class="text-md text-gray-700">Sent Reliefs</div>
+                      <div class="flex items-center pt-3">
+                          <div class="text-5xl font-bold text-green-700">230</div>
+                      </div>
+                   
+                    <div class="flex items-center ">
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">691 Food </div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">|</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 ml-1"> 231 Clothes </div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">|</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">421 Hygiene </div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">|</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 ml-1"> 101 Medical </div>
+                  </div>
+                </div>
+              </div>
+           <!--Sent Donations Icon-->    
+           <div>
+              <div class="px-4">
+               
+                <i class="fa-solid fa-box text-green-700 text-4xl"></i>
+              </div>
+          </div>
+        </div>
+
+          <!--Received Donations card-->
+          <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm  cursor-default">
+            <div class="flex items-center"> 
+                <div>
+                    <div class="text-md text-gray-700">Received Donations</div>
+                      <div class="flex items-center pt-3">
+                          <div class="text-5xl font-bold text-green-700">183</div>
+                      </div>
+                   
+                    <div class="flex items-center">
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">691 Food </div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">|</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 ml-1"> 231 Clothes </div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">|</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">421 Hygiene </div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 mr-2">|</div>
+                      <div class="text-xs sm:text-sm md:text-base lg:text-xs font-regular text-gray-400 mt-3 ml-1"> 101 Medical </div>
+                  </div>
+                </div>
+            </div>
+          <!--Received Donations Icon--> 
+              <div class="px-4">
+                <i class="fa-solid fa-truck-ramp-box text-green-700 text-4xl"></i>
+              </div>
+          </div>
+  
+        </div>
+        <!-- Grid ends here..-->
+
+        <!-- Grid-2 start here..-->
+        <div class="mt-1 mb-1 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3 p-4 ml-2">
+
+          <!-- Release Donations Chart..-->
+          
+          <div class="col-span-1 sm:col-span-1 sm:p-2 lg:col-span-2 w-full p-7 flex flex-col p-5 bg-white rounded shadow-sm cursor-default relative">
+
+            <div class="flex justify-between">
+              <b class="text-green-700 text-lg mt-3 ml-4">Released Relief Goods</b>
+          
+              <!-- Button -->
+              <button class="text-white mt-3 ml-10 bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">
+                  2023
+                  <svg class="w-5 h-7 ml-2 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+              </button>
+          </div>
+            
+            <!-- Dropdown menu -->
+            <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdown">
+                <ul class="py-1" aria-labelledby="dropdown">
+                    <li>
+                        <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">2023</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">2022</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">2021</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">2020</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Spacer -->
+            <div class="mx-auto w-full overflow-hidden min-weight: 100px"></div>
+        
+            <!-- Bar chart card -->
+            <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+        
+                <!-- Card header -->
+                <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <div class="flex items-center space-x-2">
+        
+                    </div>
+                </div>
+        
+                <!-- Chart -->
+                <div class="p-4 lg:col-span-1 flex flex-col">
+                    <canvas id="barChart" style="min-height: 200px; min-width:100px; max-width:auto; max-height: 400px;"></canvas>
+                </div>
+            </div>
+        </div>
+        
+
+          <!-- Pending Donation Box -->
+          
+          <div class="w-full col-span-1 sm:col-span-1 lg:col-span-1 flex flex-col p-7 bg-white rounded shadow-sm cursor-default">
+            <div class=" text-red-700 text-md  cursor-default">
+              <i class="fa-solid fa-circle-exclamation text-red-700 text-1xl mr-2"></i> <b>Pending Donation Requests Today</b>
+            </div>
+            <div class="border-b border-gray-300 mt-5 my-4"></div>
+            <!-- request lists -->
+              <ul role="list" class="divide-y divide-gray-100">
+
+                 <!-- first list -->
+                <li class="flex justify-between gap-x-6 py-5">
+                  <div class="flex min-w-0 gap-x-4">
+                    <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://img.freepik.com/premium-vector/new-female-avatar-icon-flat-illustration-female-avatar-vector-icon-any-web-design_98396-3364.jpg" alt="">
+                    <div class="min-w-0 flex-auto">
+                       <!-- other details -->
+                      <p class="text-sm font-semibold leading-6 text-gray-900">Kap. Martel</p>
+                      <p class="truncate text-xs leading-5 text-gray-900"> Brgy. Karuhatan </p>
+                      <p class="truncate text-xs font-bold leading-5 text-gray-500">Food Packs - Flood victims</p>
+                    </div>
+                  </div>
+                 <!-- view button -->
+                  <div class="flex items-center">
+                    <a href="adminRequest.html">
+                    <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View Details</button>
+                    </a>
+                </div>
+                </li>
+
+                <!-- second list -->
+                <li class="flex justify-between gap-x-6 py-5">
+                  <div class="flex min-w-0 gap-x-4">
+                    <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoVMBo2G4vJlYXv2IoUnajGHqa4CvJFPdwx_NPPWuG1qgtmNWON6pK1Yx4wFvWQ9SkrtM" alt="">
+                     <!-- other details -->
+                    <div class="min-w-0 flex-auto">
+                      <p class="text-sm font-semibold leading-6 text-gray-900">Kagawad Ernesto</p>
+                      <p class="truncate text-xs leading-5 text-gray-900"> Brgy. Dalandanan </p>
+                      <p class="truncate text-xs font-bold leading-5 text-gray-500">Hygiene Pack - Fire victims</p>
+                    </div>
+                  </div>
+                <!-- view button -->
+                  <div class="flex items-center">
+                    <a href="adminRequest.html">
+                      <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View Details</button>
+                    </a>
+                </div>
+                </li>
+
+                <!-- third list -->
+                <li class="flex justify-between gap-x-6 py-5">
+                  <div class="flex min-w-0 gap-x-4">
+                    <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm55J9F7L8N8Pkaiggm3xW7jwa3owLV1ZIT1JuDTBKwDOzP0AeDVx-c9D3lipAdsofG8o" alt="">
+                    <!-- other details -->
+                    <div class="min-w-0 flex-auto">
+                      <p class="text-sm font-semibold leading-6 text-gray-900">Health Worker Soledad</p>
+                      <p class="truncate text-xs leading-5 text-gray-900"> Brgy. Manotoc </p>
+                      <p class="truncate text-xs font-bold leading-5 text-gray-500">Medical kit - Fire victims</p>
+                    </div>
+                  </div>
+                 <!-- view button -->
+                  <div class="flex items-center">
+                    <a href="adminRequest.html">
+                      <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View Details</button>
+                    </a>
+                </div>
+              
+                <!-- fourth list -->
+                </li>
+                <li class="flex justify-between gap-x-6 py-5">
+                  <div class="flex min-w-0 gap-x-4">
+                    <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://img.freepik.com/premium-vector/man-avatar-icon-flat-illustration-man-avatar-vector-icon-any-web-design_98396-3379.jpg?w=360" alt="">
+                     <!-- other details -->
+                    <div class="min-w-0 flex-auto">
+                      <p class="text-sm font-semibold leading-6 text-gray-900">Sec. Onyok </p>
+                      <p class="truncate text-xs leading-5 text-gray-900"> Brgy. Malanday </p>
+                      <p class="truncate text-xs font-bold leading-5 text-gray-500">Food Packs - Flood victims</p>
+                    </div>
+                  </div>
+                <!-- view button -->
+                  <div class="flex items-center">
+                    <a href="adminRequest.html">
+                    <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View Details</button>
+                    </a>
+                </div>
+                </li>
+              </ul>
+          </div>
+      </div>
+      <!-- Grid 2 close -->
+
+      <!-- Grid 3 start -->
+      <div class="mt-1 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-3 p-4 ml-2  cursor-default">
+
+        <!--Account Request Table -->
+        <div class="col-span-1 sm:col-span-1 w-full  lg:col-span-2 flex flex-col p-7 bg-white rounded shadow-sm cursor-default">
+          <b class="text-green-700">Account Request List </b> 
+          <div class="border-b border-gray-300 mt-5 my-4"></div>
+          <ul role="list" class="divide-y-0 divide-x-0">
+
+              <!--first Account Request-->
+              <li class="flex justify-between gap-x-6 py-5">
+                  <div class="flex min-w-0 gap-x-4 ">
+                      <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://i.pinimg.com/280x280_RS/55/96/4e/55964ebb02710d6b9ce1c26f1d857906.jpg" alt="">
+                      <div class="min-w-0 flex-auto">
+                          <p class="text-sm font-semibold leading-6 text-gray-900">Barangay Representative</p>
+                          <p class="mt-1 truncate text-xs leading-5 text-gray-500">Brgy. Manotoc</p>
+                          <p class="truncate text-xs leading-5 text-gray-500">Date Sent: November 22, 2023</p>
+                      </div>
+                  </div>
+
+                  <!-- view button -->
+                  <div class="flex items-center">
+                    <a href="adminConfirm.html">
+                      <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View More</button>
+                    </a>
+                  </div>
+              </li>
+             
+              <!--first Account Request-->
+              <li class="flex justify-between gap-x-6 py-5">
+                <div class="flex min-w-0 gap-x-4 ">
+                    <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://i.pinimg.com/280x280_RS/55/96/4e/55964ebb02710d6b9ce1c26f1d857906.jpg" alt="">
+                    <div class="min-w-0 flex-auto">
+                        <p class="text-sm font-semibold leading-6 text-gray-900">Barangay Representative</p>
+                        <p class="mt-1 truncate text-xs leading-5 text-gray-500">Brgy. Manotoc</p>
+                        <p class="truncate text-xs leading-5 text-gray-500">Date Sent: November 22, 2023</p>
+                    </div>
+                </div>
+
+                <!-- view button -->
+                <div class="flex items-center">
+                  <a href="adminConfirm.html">
+                    <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View More</button>
+                  </a>
+                </div>
+            </li>
+
+             <!--first Account Request-->
+             <li class="flex justify-between gap-x-6 py-5">
+              <div class="flex min-w-0 gap-x-4 ">
+                  <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://i.pinimg.com/280x280_RS/55/96/4e/55964ebb02710d6b9ce1c26f1d857906.jpg" alt="">
+                  <div class="min-w-0 flex-auto">
+                      <p class="text-sm font-semibold leading-6 text-gray-900">Barangay Representative</p>
+                      <p class="mt-1 truncate text-xs leading-5 text-gray-500">Brgy. Manotoc</p>
+                      <p class="truncate text-xs leading-5 text-gray-500">Date Sent: November 22, 2023</p>
+                  </div>
+              </div>
+
+              <!-- view button -->
+              <div class="flex items-center">
+                <a href="adminConfirm.html">
+                  <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View More</button>
+                </a>
+              </div>
+          </li>
+
+           <!--first Account Request-->
+           <li class="flex justify-between gap-x-6 py-5">
+            <div class="flex min-w-0 gap-x-4 ">
+                <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://i.pinimg.com/280x280_RS/55/96/4e/55964ebb02710d6b9ce1c26f1d857906.jpg" alt="">
+                <div class="min-w-0 flex-auto">
+                    <p class="text-sm font-semibold leading-6 text-gray-900">Barangay Representative</p>
+                    <p class="mt-1 truncate text-xs leading-5 text-gray-500">Brgy. Manotoc</p>
+                    <p class="truncate text-xs leading-5 text-gray-500">Date Sent: November 22, 2023</p>
+                </div>
+            </div>
+
+            <!-- view button -->
+            <div class="flex items-center">
+              <a href="adminConfirm.html">
+                <button class="text-xs px-2 py-1 border rounded-md bg-blue-500 text-white">View More</button>
+              </a>
+            </div>
+        </li>
+             
+          </ul>
+        </div>
+    
+        <!--Warehouse Status start -->
+        <div class="col-span-1 sm:col-span-1  lg:col-span-1 flex flex-col p-5 bg-white rounded shadow-sm">
+          <div class="text-md ">
+           <i class="fa-solid fa-warehouse text-green-700  mr-2 "></i></a>
+           <b class="text-green-700">Warehouse Status</b>
+          </div>
+          <div class="border-b border-gray-300 mt-5 my-4"></div>
+        <!--first warehouse status card -->
+          <div class="relative mt-5  sm:w-100px bg-white rounded-b-lg border-green-400 border-l-8 px-4 py-8 flex flex-col justify-around shadow-md">
+            <p class="text-sm font-regular text-gray-500 relative">Nov. 03, 2023 <a href="#" onclick="handleIconClick()" class="cursor-pointer"><i id="clickableIcon"class="fa-solid fa-circle-xmark text-black absolute top-0 right-0 cursor-pointer"></i></a></p>
+            <p class="text-lg font-bold font-sans relative">ALERT CENTER WAREHOUSE  </p>
+
+            <!--other details -->
+            <div class="py-3">
+                <p class="text-xs text-green-800 font-medium mt-1 cursor-default"> <i>15 pcs. box of Food Packages  from FO5 WAREHOUSE
+                  has been successfully transferred.</i> </p> 
+            </div>              
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+
+    <!-- my custom script -->
+    <script src="script.js"></script>
+
+    <!-- Bar Chart Update Function -->
+    <script>
+        // Function to update the bar chart
+        const updateBarChart = (on) => {
+            const data = {
+                data: randomData(),
+                backgroundColor: 'rgb(207, 250, 254)',
+            }
+            if (on) {
+                barChart.data.datasets.push(data)
+                barChart.update()
+            } else {
+                barChart.data.datasets.splice(1)
+                barChart.update()
+            }
+        }
+    </script>
+
+    <!-- Dropdown Menu Toggle Function -->
+    <script>
+        // Toggle dropdown menu visibility
+        function toggleDropdown(type) {
+            // Toggle visibility for the specified dropdown
+            if (type === 'stocks') {
+                document.querySelector('#submenu-stocks').classList.toggle('hidden');
+                document.querySelector('#submenu-kitting').classList.toggle('hidden');
+                document.querySelector('#arrow-stocks').classList.toggle('rotate-0');
+            } else if (type === 'administrator') {
+                document.querySelector('#submenu-user-management').classList.toggle('hidden');
+                document.querySelector('#submenu-request-confirmation').classList.toggle('hidden');
+                document.querySelector('#arrow-administrator').classList.toggle('rotate-0');
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
+    <!-- Sidebar Functions -->
+    <script>
+        // Function to handle icon click
+        function handleIconClick() {
+            // Add functionality as needed
+        }
+
+        // Function to toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  </body>
+</html>

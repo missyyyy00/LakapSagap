@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitting</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+<body class = "font-[Roboto]">
+    <!-- Navigation start -->
+    <nav class="navbar top-0 left-0 right-0 flex justify-between items-center p-1 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hidden Hamburger Icon -->
+            <span class="absolute text-white text-2xl top-6 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars-staggered text-red-700"></i>
+            </span>
+          </a>
+
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+        
+        <div class="flex items-center">
+            <div class="flex flex-shrink-0 items-center ml-auto">
+               <!-- Notification Bell Icon -->
+                  <button class="relative p-2 text-red-700 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full mr-2">
+                    <span class="sr-only">Notifications</span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                    <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </button>
+                <!-- Profile Avatar -->
+                <a href="adminSettings.html">
+                <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+                  <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+                    <span class="font-semibold">Jessa De Reyes</span>
+                    <span class="text-sm text-gray-600">CSWD ADMIN</span>
+                  </div>
+                  <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                    <img src="images/avatar_sample.png" alt="user profile photo" class="h-full w-full object-cover">
+                  </span>
+                </button>
+                </a>
+            </div>
+    </nav>
+    <!-- Navigation End -->
+
+
+    <!-- Sidebar Menu Start -->
+        <div class="sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 lg:left-0 left-[-300px]  duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen lg:block">
+          <div class="text-gray-100 text-xl">
+              <div class="p-2.5 mt-1 flex items-center rounded-md ">
+                  <!-- Logo in Sidebar -->
+                  <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+                  
+                  <!-- Close Icon in Sidebar -->
+                  <i class="fa-solid fa-xmark ml-4 mb-10 cursor-pointer lg:hidden text-red-700" onclick="Openbar()"></i>
+              </div>
+              
+              <hr class="my-2 text-gray-600">
+        
+              <div>
+                <!-- Dashboard Link -->
+                <a href="admindashboard.html">
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                      <i class="fa-solid fa-house text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Dashboard</span>
+                  </div>
+                </a>
+        
+                  <!-- Request Link -->
+                <a href="adminRequest.html">
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                      <i class="fa-solid fa-hand-holding-hand text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Request</span>
+                  </div>
+                </a>
+        
+                  <!-- Warehouse -->
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                    <i class="fa-solid fa-warehouse text-red-700 group-hover:text-white"></i>
+                    <div class="flex justify-between w-full items-center" onclick="toggleDropdown('stocks')">
+                        <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Warehouse</span>
+                        <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-stocks">
+                            <i class="fa-solid fa-angle-up"></i>
+                        </span>
+                    </div>
+                  </div>
+        
+                <!-- Warehouse Stocks Management Link  -->
+                <a href="adminStockManage.html">
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto" id="submenu-stocks">
+                    <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                          Stock Management
+                      </h1>
+                  </div>
+                </a>
+
+                <!-- Warehouse Kitting Link  -->
+                <a href="adminKiting.html"> 
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto" id="submenu-kitting">
+                    <h1 class="cursor-pointer p-2 text-white group-hover:text-white rounded-md mt-1 bg-red-700">
+                          Kitting
+                      </h1>
+                  </div>
+                </a>
+        
+                <!-- Administrator Dropdown -->
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                    <i class="fa-solid fa-user-shield text-red-700 group-hover:text-white"></i>
+                      <div class="flex justify-between w-full items-center" onclick="toggleDropdown('administrator')">
+                          <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Administrator</span>
+                          <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-administrator">
+                              <i class="fa-solid fa-angle-up"></i>
+                          </span>
+                      </div>
+                  </div>
+        
+                <!-- Administrator Dropdown Content -->
+                <a href="adminControl.html"> 
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-user-management">
+                    <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                          User Management
+                      </h1>
+                  </div>
+                </a>
+        
+                <a href="adminConfirm.html"> 
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-request-confirmation">
+                    <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                          Request Confirmation
+                      </h1>
+                  </div>
+                </a>
+        
+                  <!-- History Link -->
+                <a href="adminHistory.html"> 
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                    <i class="fa-solid fa-clipboard text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">History</span>
+                  </div>
+                </a>
+        
+                  <!-- Account Setting Link -->
+                <a href="adminSettings.html"> 
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                    <i class="fa-solid fa-gear text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Account Setting</span>
+                  </div>
+                </a>
+        
+                  <!-- Logout Link -->
+                <a href="index.html">
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black" >
+                    <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-red-700 group-hover:text-white"></i>
+                          <span class="text-[15px]  ml-4 text-red-700 group-hover:text-white">Logout</span>
+                  </div>
+                </a>
+
+              </div>
+          </div>
+        </div>
+    <!-- end of sidebar -->
+
+    <!-- main content -->
+    <div class="p-2 w-full md:w-[calc(100%-256px)] md:h-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 space-y-6 flex flex-wrap">
+      <div class="ml-3 container px-5 mx-auto ">
+        <div class="card w-56 h-10 ml-auto mb-5 ">
+
+        <!-- button for add kit-->
+          <div class="flex items-center justify-center ">
+            <button id="openModal" class="bg-green-700 w-64 h-10 text-white  border border-green-400 border-b-4 font-medium rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group text-sm">
+              <i class="fa-solid fa-plus ext-white mr-2"></i> Add kit </i>
+            </button>
+          </div>
+        </div>
+
+         <!-- cards section-->
+        <div class="flex flex-wrap -m-4 text-center">
+        <div class="p-2 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500 open-modal">  <!--the only card that have modal-->
+          <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+
+            <!--contents of card-->
+            <div>
+              <h2 class="text-gray-900 text-2xl font-bold text-left">Family Kit <h3 class="text-sm font-bold text-gray-500 text-left">Expiration: <span class="text-sm font-regular text-gray-600">December 25, 2024</span></h3></h2>
+              <p class="mt-2 text-sm font-semibold text-gray-400 text-left">Available:</p>
+              <h3 class="text-xl font-bold text-yellow-500 text-left">201 Packs</h3>
+              <p class="text-xs font-regular text-gray-400 text-left">1  Red cross Alcohol</p>
+              <p class="text-xs font-regular text-gray-400 text-left">3 Bigas </p>
+              <p class="text-xs font-regular text-gray-400 text-left">5 Nissin Cup Noodles</p>
+              <p class="text-xs font-regular text-gray-400 text-left">4 555 Tuna</p>
+              <p class="text-xs font-regular text-gray-400 text-left">20 Safeguard Soap</p>
+              <p class="text-xs font-regular text-gray-400 text-left">20 Kopiko Blanca 3in1 Coffee</p>
+
+               <!--button for editing the contents of card-->
+                <div class="flex space-x-2 mt-4 sm:mt-6">
+                  <button id="openEditModal" class="text-sm px-6 py-2 bg-yellow-400 text-white rounded-lg tracking-wider hover:bg-yellow-300 outline-none">
+                      <i class="fa-regular fa-pen-to-square text-white"></i>
+                  </button>
+                  <button class="text-sm px-6 py-2 bg-red-700 text-white rounded-lg tracking-wider hover:bg-red-600 outline-none">
+                      <i class="fa-regular fa-trash-can text-white"></i>
+                  </button>
+                 
+                </div>
+            </div>
+              <!-- the right circle -->
+            <div
+            class="bg-gradient-to-tr from-yellow-500 to-yellow-400 w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-2xl shadow-yellow-400 border-white  border-dashed border-2 flex justify-center items-center ">
+            <i class="fa-solid fa-people-roof text-white text-2xl"></i>
+            </div>
+          </div>
+      </div>
+
+       <!-- other cards -->
+      <div class="p-2 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-2xl font-bold text-left">Food Pack <h3 class="text-sm font-bold text-gray-500 text-left">Expiration: <span class="text-sm font-regular text-gray-600">April 15, 2024</span></h3></h2>
+            <p class="mt-2 text-sm font-semibold text-gray-400 text-left">Available:</p>
+            <h3 class="text-xl font-bold text-orange-500 text-left">156 Packs</h3>
+            <p class="text-xs font-regular text-gray-400 text-left">1 Bigas</p>
+            <p class="text-xs font-regular text-gray-400 text-left">8 Noodles</p>
+            <p class="text-xs font-regular text-gray-400 text-left">3 Corned Beef</p>
+            <p class="text-xs font-regular text-gray-400 text-left">2 Meat loaf</p>
+            <p class="text-xs font-regular text-gray-400 text-left">10 Kopiko Blanca</p>
+            <p class="text-xs font-regular text-gray-400 text-left">1 Sugar</p>
+            
+            <div class="flex space-x-2 mt-4 sm:mt-6">
+              <button id="openEditModal" class="text-sm px-6 py-2 bg-orange-400 text-white rounded-lg tracking-wider hover:bg-orange-300 outline-none">
+                  <i class="fa-regular fa-pen-to-square text-white"></i>
+              </button>
+              <button class="text-sm px-6 py-2 bg-red-700 text-white rounded-lg tracking-wider hover:bg-red-600 outline-none">
+                  <i class="fa-regular fa-trash-can text-white"></i>
+              </button>
+          </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-tr from-orange-500 to-orange-400 w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-2xl shadow-orange-400 border-white  border-dashed border-2 flex justify-center items-center ">
+            <i class="fa-solid fa-bowl-food text-white text-2xl"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- other cards -->
+       <div class="p-2 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-2xl font-bold text-left">Comfort Kit<h3 class="text-sm font-bold text-gray-500 text-left">Expiration: <span class="text-sm font-regular text-gray-600">August 2, 2024</span></h3></h2>
+            <p class="mt-2 text-sm font-semibold text-gray-400 text-left">Available:</p>
+            <h3 class="text-xl font-bold text-indigo-500 text-left">101 Packs</h3>
+            <p class="text-xs font-regular text-gray-400 text-left">1 Bed sheet</p>
+            <p class="text-xs font-regular text-gray-400 text-left">6 Tshirt</p>
+            <p class="text-xs font-regular text-gray-400 text-left">10 Short</p>
+            <p class="text-xs font-regular text-gray-400 text-left">1 Jacket</p>
+            <p class="text-xs font-regular text-gray-400 text-left">4 Socks</p>
+            <p class="text-xs font-regular text-gray-400 text-left">3 Slippers</p>
+            
+            <div class="flex space-x-2 mt-4 sm:mt-6">
+              <button class="text-sm px-6 py-2 bg-indigo-400 text-white rounded-lg tracking-wider hover:bg-indigo-300 outline-none">
+                  <i class="fa-regular fa-pen-to-square text-white"></i>
+              </button>
+              <button class="text-sm px-6 py-2 bg-red-700 text-white rounded-lg tracking-wider hover:bg-indigo-600 outline-none">
+                  <i class="fa-regular fa-trash-can text-white"></i>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-tr from-indigo-500 to-indigo-400 w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-2xl shadow-indigo-400 border-white  border-dashed border-2 flex justify-center items-center ">
+            <i class="fa-solid fa-tents text-white text-2xl"></i>
+          </div>
+        </div>
+      </div>
+
+    <!-- other cards -->
+      <div class="p-2 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-2xl font-bold text-left">Kitchen Kit <h3 class="text-sm font-bold text-gray-500 text-left">Expiration: <span class="text-sm font-regular text-gray-600">October 12, 2024</span></h3></h2>
+            <p class="mt-2 text-sm font-semibold text-gray-400 text-left">Available:</p>
+            <h3 class="text-xl font-bold text-violet-500 text-left">76 Packs</h3>
+            <p class="text-xs font-regular text-gray-400 text-left">5 Utensils</p>
+            <p class="text-xs font-regular text-gray-400 text-left">5 Plactic cups</p>
+            <p class="text-xs font-regular text-gray-400 text-left">1 Kaldero</p>
+            <p class="text-xs font-regular text-gray-400 text-left">1 Sandok</p>
+            <p class="text-xs font-regular text-gray-400 text-left">4 Pan</p>
+            <p class="text-xs font-regular text-gray-400 text-left">5 Plate</p>
+            
+            <div class="flex space-x-2 mt-4 sm:mt-6">
+              <button class="text-sm px-6 py-2 bg-violet-400 text-white rounded-lg tracking-wider hover:bg-violet-300 outline-none">
+                  <i class="fa-regular fa-pen-to-square text-white"></i>
+              </button>
+              <button class="text-sm px-6 py-2 bg-red-700 text-white rounded-lg tracking-wider hover:bg-red-600 outline-none">
+                  <i class="fa-regular fa-trash-can text-white"></i> 
+              </button>
+          </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-tr from-violet-500 to-violet-400 w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-2xl shadow-violet-400 border-white  border-dashed border-2 flex justify-center items-center ">
+            <i class="fa-solid fa-utensils text-white text-2xl"></i>
+          </div>
+        </div>
+      </div>
+
+    <!-- other cards -->
+      <div class="p-2 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
+        <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
+          <div>
+            <h2 class="text-gray-900 text-2xl font-bold text-left">Snack Pack <h3 class="text-sm font-bold text-gray-500 text-left">Expiration: <span class="text-sm font-regular text-gray-600">May 24, 2024</span></h3></h2>
+            <p class="mt-2 text-sm font-semibold text-gray-400 text-left">Available:</p>
+            <h3 class="text-xl font-bold text-green-500 text-left">56 Packs</h3>
+            <p class="text-xs font-regular text-gray-400 text-left">12 Biscuit</p>
+            <p class="text-xs font-regular text-gray-400 text-left">5 Water</p>
+            <p class="text-xs font-regular text-gray-400 text-left">6 Bread </p>
+            <p class="text-xs font-regular text-gray-400 text-left">6 Kopiko Coffee</p>
+            <p class="text-xs font-regular text-gray-400 text-left">1 Sugar</p>
+            <p class="text-xs font-regular text-gray-400 text-left">5 Bear Brand Powdered Milk</p>
+            
+            <div class="flex space-x-2 mt-4 sm:mt-6">
+              <button class="text-sm px-6 py-2 bg-green-400 text-white rounded-lg tracking-wider hover:bg-green-300 outline-none">
+                  <i class="fa-regular fa-pen-to-square text-white"></i>
+              </button>
+              <button class="text-sm px-6 py-2 bg-red-700 text-white rounded-lg tracking-wider hover:bg-red-600 outline-none">
+                  <i class="fa-regular fa-trash-can text-white"></i>
+              </button>
+          </div>
+          </div>
+          
+          <div
+            class="bg-gradient-to-tr from-green-500 to-green-400 w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-2xl shadow-green-400 border-white  border-dashed border-2 flex justify-center items-center ">
+            <i class="fa-solid fa-cookie-bite text-white text-2xl"></i>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+<!-- end of content -->
+
+      <!-- edit kit modal structure -->
+      <div id="editModal" class="modal hidden fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen">
+          <div class="bg-white max-w-4xl border-t-8 border-red-700 mt-8 shadow-md shadow-xl shadow-red/5 p-6 rounded-lg max-w-1xl w-full sm:w-1/2 relative">
+              
+            <!-- This is an example component -->
+              <div class="p-2 border-b">
+                  <h2 class="text-2xl inline-block">
+                      Edit Kit
+                  </h2>
+                  <i id="closeEditModal" class="fa-solid fa-circle-xmark cursor-pointer text-gray-700 text-2xl absolute top-5 right-5"></i>
+              </div>
+
+              <!-- kit name input -->
+              <div class="-mx-3 md:flex mb-6">
+                <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                    Kit Name
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" value="Family Pack" type="text" >
+                </div>
+
+                <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                      Category
+                  </label>
+                  <select class="appearance-none block w-full bg-grey-lighter text-grey-lighter border border-red rounded py-3 px-4 mb-3">
+                      <option value="">Family</option>
+                      <option value="kit_type_1" >Food</option>
+                      <option value="kit_type_2">Hygiene</option>
+                      <option value="kit_type_2">Snack</option>
+                      <option value="kit_type_2">Kitchen</option>
+                      <option value="kit_type_2">Comfort</option>
+                      <!-- Add more options as needed -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                        <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                  </select>
+
+              </div>
+
+              <!-- quantity of pack input -->
+              <div class="mt-3 md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                    Quantity (per pack)
+                </label>
+                <input value="201" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text">
+            </div>
+                </div>
+              
+              <!-- type of item input dropdown -->
+              <div class="-mx-3 md:flex mb-6">
+                <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                      Type of Item
+                  </label>
+              
+                  <div class="relative group">
+                      <button id="dropdown-button" class="mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                          Red Cross
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                              <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                      </button>
+              
+                      <!-- dropdown content -->
+                      <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1 z-10">
+                          <!-- Search input -->
+                          <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off">
+                          <!-- Dropdown content goes here -->
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Bigas</a>
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kopiko Coffee</a>
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">555 canned tuna</a>
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Corned beef</a>
+                      </div>
+                  </div>
+              </div>
+              
+                <!-- quantity of pack item -->
+                <div class="mt-3 md:w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                    Quantity Per item
+                    </label>
+                    <input id="name" value="1"  oninput="checkQuantity(this.value)" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"/>
+                </div>
+                </div>
+
+                <div class="-mx-3 md:flex mb-6">
+                  <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                      Type of Item
+                      </label>
+  
+                      <div class="relative group">
+                        <button id="dropdown-button" class="mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                          Bigas
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </button>
+  
+                      <!-- dropdown content -->
+                        <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1" >
+                          <!-- Search input -->
+                          <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off">
+                          <!-- Dropdown content goes here -->
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Bigas</a>
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kopiko Coffee</a>
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">555 canned tuna</a>
+                          <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Corned beef</a>
+                        </div>
+                      </div>
+                  </div>
+  
+                  <!-- quantity of pack item -->
+                  <div class="mt-3 md:w-1/2 px-3">
+                      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                      Quantity Per item
+                      </label>
+                      <input id="name" value="3" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"/>
+                  </div>
+                  </div>
+
+                  <div class="-mx-3 md:flex mb-6">
+                    <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                        Type of Item
+                        </label>
+    
+                        <div class="relative group">
+                          <button id="dropdown-button" class="mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                          Nissin Cup Noodles
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                              <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                          </button>
+    
+                        <!-- dropdown content -->
+                          <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1" >
+                            <!-- Search input -->
+                            <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off">
+                            <!-- Dropdown content goes here -->
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Bigas</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kopiko Coffee</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">555 canned tuna</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Corned beef</a>
+                          </div>
+                        </div>
+                    </div>
+    
+                    <!-- quantity of pack item -->
+                    <div class="mt-3 md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                        Quantity Per item
+                        </label>
+                        <input id="name" value="5" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"/>
+                    </div>
+                    </div>
+
+                    <div class="-mx-3 md:flex mb-6">
+                      <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                          Type of Item
+                          </label>
+      
+                          <div class="relative group">
+                            <button id="dropdown-button" class="mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                              555 Tuna
+                              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                                <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                              </svg>
+                            </button>
+      
+                          <!-- dropdown content -->
+                            <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1" >
+                              <!-- Search input -->
+                              <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off">
+                              <!-- Dropdown content goes here -->
+                              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Bigas</a>
+                              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kopiko Coffee</a>
+                              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">555 canned tuna</a>
+                              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Corned beef</a>
+                            </div>
+                          </div>
+                      </div>
+      
+                      <!-- quantity of pack item -->
+                      <div class="mt-3 md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                          Quantity Per item
+                          </label>
+                          <input id="name" value="4" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"/>
+                      </div>
+                      </div>
+
+                      <div class="-mx-3 md:flex mb-6">
+                        <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                            Type of Item
+                            </label>
+        
+                            <div class="relative group">
+                              <button id="dropdown-button" class="mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                              Safeguard Soap
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                                  <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                              </button>
+        
+                            <!-- dropdown content -->
+                              <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1" >
+                                <!-- Search input -->
+                                <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off">
+                                <!-- Dropdown content goes here -->
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Bigas</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kopiko Coffee</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">555 canned tuna</a>
+                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Corned beef</a>
+                              </div>
+                            </div>
+                        </div>
+        
+                        <!-- quantity of pack item -->
+                        <div class="mt-3 md:w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                            Quantity Per item
+                            </label>
+                            <input id="name" value="20" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"/>
+                        </div>
+                        </div>
+
+                        <div class="-mx-3 md:flex mb-6">
+                          <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                              <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                              Type of Item
+                              </label>
+          
+                              <div class="relative group">
+                                <button id="dropdown-button" class="mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                                Kopiko Blanca 3in1 Coffee
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                                    <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                  </svg>
+                                </button>
+          
+                              <!-- dropdown content -->
+                                <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1" >
+                                  <!-- Search input -->
+                                  <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off">
+                                  <!-- Dropdown content goes here -->
+                                  <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Bigas</a>
+                                  <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kopiko Coffee</a>
+                                  <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">555 canned tuna</a>
+                                  <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Corned beef</a>
+                                </div>
+                              </div>
+                          </div>
+          
+                          <!-- quantity of pack item -->
+                          <div class="mt-3 md:w-1/2 px-3">
+                              <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                              Quantity Per item
+                              </label>
+                              <input id="name" value="20" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"/>
+                          </div>
+                          </div>
+
+                
+
+                <div class="text-sm mt-5 flex">
+                  <button class="ml-auto cursor-pointer transition-all 
+                  bg-green-700 text-white px-5 py-1 rounded-lg
+                  border-green-800
+                  border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                  active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                  <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
+                  Add item
+                  </button>
+                </div>
+
+               <!-- expiry date input -->
+              <label for="expiry" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Estimate Expiry Date of All Items</label>
+              <div class="relative mb-5">
+                  <div class="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
+
+                     <!-- just the icon -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="mt-20 icon icon-tabler icon-tabler-calendar-event" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" />
+                          <rect x="4" y="5" width="16" height="16" rx="2" />
+                          <line x1="16" y1="3" x2="16" y2="7" />
+                          <line x1="8" y1="3" x2="8" y2="7" />
+                          <line x1="4" y1="11" x2="20" y2="11" />
+                          <rect x="8" y="15" width="2" height="2" />
+                      </svg>
+                  </div>
+                </div>
+                  <input id="expiry" class="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="DD/MM/YY" />
+                  
+                   <!-- button for adding item -->
+
+
+                  <!-- button for adding kit-->
+                  <div class="text-sm mt-5 flex gap-2">
+                        <button class="ml-auto cursor-pointer transition-all 
+                        bg-green-700 text-white px-6 py-2 rounded-lg
+                        border-green-800
+                        border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                        active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                        Save
+                        </button>
+                  </div>
+              </div>
+        </div>
+    </div>
+    
+         <!-- Add kit Form Modal -->
+         <div id="formModal" class="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto hidden">
+          <div class="flex items-center justify-center min-h-screen">
+              <div class="bg-white max-w-4xl border-t-8 border-red-700 mt-8 shadow-md shadow-xl shadow-red/5 p-6 rounded-lg max-w-1xl w-full sm:w-1/2 relative">
+                  
+                  <!-- title -->
+                  <div class="p-2 border-b">
+                      <h2 class="text-2xl inline-block">
+                          Add Kit
+                      </h2>
+                       <!-- cancel button -->
+                      <i id="cancelButton" class="fa-solid fa-circle-xmark cursor-pointer text-gray-700 text-2xl absolute top-5 right-5"></i>
+                  </div>
+
+                   <!-- Kit Name input -->
+                  <div class="-mx-3 md:flex mb-6">
+                    <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                        Kit Name
+                        </label>
+                        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" >
+                    </div>
+
+                    <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                          Category
+                      </label>
+                      <select class="appearance-none block w-full bg-grey-lighter text-grey-lighter border border-red rounded py-3 px-4 mb-3">
+                          <option value=""disabled selected >Select Category</option>
+                          <option value="kit_type_1" >Family</option>
+                          <option value="kit_type_1" >Food</option>
+                          <option value="kit_type_2">Hygiene</option>
+                          <option value="kit_type_2">Snack</option>
+                          <option value="kit_type_2">Kitchen</option>
+                          <option value="kit_type_2">Comfort</option>
+                          <!-- Add more options as needed -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                            <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                      </select>
+    
+                  </div>
+
+                    <!-- Quantity (per pack) input -->
+                    <div class="mt-3 md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                        Quantity (per pack)
+                        </label>
+                        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" >
+                    </div>
+                    </div>
+
+
+                   <!-- Type of Item input -->
+                  <div class="-mx-3 md:flex mb-6">
+                    <div class="mt-3 md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                        Type of Item
+                        </label>
+
+                        <!-- Choosing Item dropdown -->
+                        <div class="relative group">
+                          <button id="dropdown-button" class="mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                           Item
+                            <!-- icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3 ml-auto -mr-1 justify-end">
+                              <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                          </button>
+
+                         <!-- search bar  -->
+                          <div id="dropdown-menu" class="hidden absolute w-80 left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1" >
+                            <!-- Search input -->
+                            <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off">
+                            <!-- Dropdown content goes here -->
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Bigas</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kopiko Coffee</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">555 canned tuna</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Corned beef</a>
+                          </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Per item input -->
+                    <div class="mt-3 md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                        Quantity Per item
+                        </label>
+                        <input id="name" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"/>
+                    </div>
+                    </div>
+
+                    <!-- button for add item-->
+                    <div class="text-sm mt-5 flex">
+                      <button class="ml-auto cursor-pointer transition-all 
+                      bg-green-700 text-white px-5 py-1 rounded-lg
+                      border-green-800
+                      border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                      active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                      <i class="fa-solid fa-plus text-white mr-1 ml-1"></i>
+                      Add item
+                      </button>
+                      </div>
+
+                  <!-- Expiry date input -->
+                  <label for="expiry" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Estimated Expiry Date of all Items</label>
+                  <div class="relative mb-5">
+                      <div class="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="mt-20 icon icon-tabler icon-tabler-calendar-event" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" />
+                              <rect x="4" y="5" width="16" height="16" rx="2" />
+                              <line x1="16" y1="3" x2="16" y2="7" />
+                              <line x1="8" y1="3" x2="8" y2="7" />
+                              <line x1="4" y1="11" x2="20" y2="11" />
+                              <rect x="8" y="15" width="2" height="2" />
+                          </svg>
+                      </div>
+                  </div>
+                  <input id="expiry" class="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="DD/MM/YY" />
+                      
+                  <!-- button for adding kit -->
+                      <div class="text-sm mt-5 flex gap-2">
+                            <button class="ml-auto cursor-pointer transition-all 
+                            bg-green-700 text-white px-6 py-2 rounded-lg
+                            border-green-800
+                            border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+                            active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none">
+                            Add kit
+                            </button>
+                      </div>
+              </div>
+          </div>
+         </div>
+          
+        
+  
+    <!-- Dropdown Menu Toggle Function -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const editModal = document.getElementById("editModal");
+        const openEditModalButton = document.getElementById("openEditModal");
+        const closeEditModalButton = document.getElementById("closeEditModal");
+        const saveChangesButton = document.getElementById("saveChanges");
+    
+        // Open the modal when the edit button is clicked
+        openEditModalButton.addEventListener("click", function () {
+          editModal.classList.remove("hidden");
+        });
+    
+        // Close the modal when the close button is clicked
+        closeEditModalButton.addEventListener("click", function () {
+          editModal.classList.add("hidden");
+        });
+    
+        // Save changes (You can replace this with your actual save logic)
+        saveChangesButton.addEventListener("click", function () {
+          // Add your save logic here
+          console.log("Changes saved!");
+          // Close the modal after saving
+          editModal.classList.add("hidden");
+        });
+    
+        // Close the modal when clicking outside the modal content
+        window.addEventListener("click", function (event) {
+          if (event.target === editModal) {
+            editModal.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+    
+    <script>
+      // Function to open the form modal
+      function openFormModal() {
+          document.getElementById('formModal').classList.remove('hidden');
+          document.body.classList.add('overflow-hidden');
+      }
+  
+      // Function to close the form modal
+      function closeFormModal() {
+          document.getElementById('formModal').classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+      }
+    </script>
+  
+    <script>
+        // Event listener for the cancel button to hide the form modal
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            document.getElementById('formModal').classList.add('hidden');
+        });
+    </script>
+  
+    <!-- External script file -->
+    <script src="script.js"></script>
+  
+
+    <script>
+      // Toggle dropdown menu visibility
+      function toggleDropdown(type) {
+          // Toggle visibility for the specified dropdown
+          if (type === 'stocks') {
+              document.querySelector('#submenu-stocks').classList.toggle('hidden');
+              document.querySelector('#submenu-kitting').classList.toggle('hidden');
+              document.querySelector('#arrow-stocks').classList.toggle('rotate-0');
+          } else if (type === 'administrator') {
+              document.querySelector('#submenu-user-management').classList.toggle('hidden');
+              document.querySelector('#submenu-request-confirmation').classList.toggle('hidden');
+              document.querySelector('#arrow-administrator').classList.toggle('rotate-0');
+          }
+      }
+    </script>
+
+   <!-- Cards -->
+
+    <script>
+      // JavaScript to toggle the dropdown
+      const button = document.getElementById('dropdown-button'); // Button to open/close the dropdown
+      const menu = document.getElementById('dropdown-menu'); // Dropdown menu
+      const searchInput = document.getElementById('search-input'); // Search input within the dropdown
+
+      // Event listener to toggle the dropdown visibility
+      button.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          searchInput.value = ''; // Clear the search input when the dropdown is opened
+      });
+
+      // Event listener to close the dropdown when clicking outside the button and menu
+      document.addEventListener('click', (event) => {
+          if (!button.contains(event.target) && !menu.contains(event.target)) {
+              menu.classList.add('hidden');
+          }
+      });
+
+      // Event listener for input changes in the search field
+      searchInput.addEventListener('input', () => {
+          const searchTerm = searchInput.value.toLowerCase();
+          const items = dropdownMenu.querySelectorAll('a');
+
+          // Loop through each item and show/hide based on the search term
+          items.forEach((item) => {
+              const text = item.textContent.toLowerCase();
+              if (text.includes(searchTerm)) {
+                  item.style.display = 'block';
+              } else {
+                  item.style.display = 'none';
+              }
+          });
+      });
+    </script>
+<script>
+  function checkQuantity(value) {
+      // Check if the entered value is an integer
+      if (!Number.isInteger(Number(value))) {
+          alert("Please enter a valid integer quantity.");
+          return;
+      }
+
+      // Check if the entered value is greater than or equal to 200
+      if (parseInt(value) >= 200) {
+          alert("Insufficient stock!");
+      }
+  }
+</script>
+    
+    <!-- Sidebar Functions -->
+    
+    <script>
+        // Function to handle icon click
+        function handleIconClick() {
+            // Add functionality as needed
+        }
+
+        // Function to toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+  </body>
+</html>

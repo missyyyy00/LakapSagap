@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Account</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+  <body>
+    <div class = "font-[Roboto]">
+        <!-- Navigation start -->
+        <nav class="navbar top-0 left-0 right-0 flex justify-between items-center p-1 bg-white shadow">
+            <a href="#" class="flex items-center">
+                <!-- Hidden Hamburger Icon -->
+                <span class="absolute text-white text-2xl top-6 left-4 cursor-pointer" onclick="Openbar()">
+                    <i class="fa-solid fa-bars-staggered text-red-700"></i>
+                </span>
+              </a>
+
+                <!-- Logo -->
+                <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+            
+            <div class="flex items-center">
+                <div class="flex flex-shrink-0 items-center ml-auto">
+                  <!-- Notification Bell Icon -->
+                      <button class="relative p-2 text-red-700 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full mr-2">
+                        <span class="sr-only">Notifications</span>
+                        <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                        <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                      </button>
+                    <!-- Profile Avatar -->
+                    <a href="adminSettings.html">
+                      <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+                        <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+                          <span class="font-semibold">Jessa De Reyes</span>
+                          <span class="text-sm text-gray-600">CSWD ADMIN</span>
+                        </div>
+                        <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                          <img src="images/avatar_sample.png" alt="user profile photo" class="h-full w-full object-cover">
+                        </span>
+                      </button>
+                    </a>
+                </div>
+        </nav>
+        <!-- Navigation End -->
+
+        <!-- Sidebar Menu Start -->
+        <div class="sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 lg:left-0 left-[-300px]  duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen lg:block">
+          
+          <div class="text-gray-100 text-xl">
+              <div class="p-2.5 mt-1 flex items-center rounded-md ">
+                  <!-- Logo in Sidebar -->
+                  <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+                  <!-- Close Icon in Sidebar -->
+                  <i class="fa-solid fa-xmark ml-4 mb-10 cursor-pointer lg:hidden text-red-700" onclick="Openbar()"></i>
+              </div>
+              <hr class="my-2 text-gray-600">
+
+              <div>
+                <!-- Dashboard Link -->
+                <a href="admindashboard.html"></a>
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                      <i class="fa-solid fa-house text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Dashboard</span>
+                  </div>
+                </a>
+
+                  <!-- Request Link -->
+                <a href="adminRequest.html">
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                      <i class="fa-solid fa-hand-holding-hand text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Request</span>
+                  </div>
+                </a>
+
+                  <!-- Warehouse -->
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                    <i class="fa-solid fa-warehouse text-red-700 group-hover:text-white"></i>
+                    <div class="flex justify-between w-full items-center" onclick="toggleDropdown('stocks')">
+                        <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Warehouse</span>
+                        <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-stocks">
+                            <i class="fa-solid fa-angle-up"></i>
+                        </span>
+                    </div>
+                  </div>
+
+                <!-- Warehouse Stocks Management Link  -->
+                <a href="adminStockManage.html"> 
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-stocks">
+                    <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                          Stock Management
+                      </h1>
+                  </div>
+                </a>
+
+                <!-- Warehouse Kitting Link  -->
+                <a href="adminKiting.html"> 
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-kitting">
+                    <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                          Kitting
+                      </h1>
+                  </div>
+                </a>
+
+                <!-- Administrator Dropdown -->
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                    <i class="fa-solid fa-user-shield text-red-700 group-hover:text-white"></i>
+                      <div class="flex justify-between w-full items-center" onclick="toggleDropdown('administrator')">
+                          <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Administrator</span>
+                          <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-administrator">
+                              <i class="fa-solid fa-angle-up"></i>
+                          </span>
+                      </div>
+                  </div>
+
+                <!-- Administrator Dropdown Content -->
+                <a href="adminControl.html"> 
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-user-management">
+                    <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                          User Management
+                      </h1>
+                  </div>
+                </a>
+
+                <a href="adminConfirm.html"> 
+                  <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-request-confirmation">
+                    <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                          Request Confirmation
+                      </h1>
+                  </div>
+                </a>
+
+                  <!-- History Link -->
+                <a href="adminHistory.html">
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+                    <i class="fa-solid fa-clipboard text-red-700 group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">History</span>
+                  </div>
+                </a>
+
+                  <!-- Account Setting Link -->
+                <a href="adminSettings.html"> 
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  bg-red-700">
+                    <i class="fa-solid fa-gear text-white group-hover:text-white"></i>
+                      <span class="text-[15px] ml-4 text-white group-hover:text-white">Account Setting</span>
+                  </div>
+                </a>
+
+                  <!-- Logout Link -->
+                <a href="index.html">
+                  <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black" >
+                    <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-red-700 group-hover:text-white"></i>
+                          <span class="text-[15px]  ml-4 text-red-700 group-hover:text-white">Logout</span>
+                  </div>
+                </a>
+              </div>
+          </div>
+        </div>
+        <!-- end of sidebar -->
+        
+        <!-- Main Content-->
+        <div class="p-2 w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8">
+          <div class="ml-2 grid bg-white lg:ml-5 round grid-cols-1 lg:grid-cols-1 gap-6 mb-6 p-4 gap-10 border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md max-w-full mx-auto">
+              <form>
+                  <div class="space-y-12">
+      
+                      <!-- Account Settings Section -->
+                      <div class="border-b border-gray-900/10 pb-12">
+                          <h2 class="text-3xl font-semibold leading-7 text-gray-900">Account Settings</h2>
+      
+                          <!-- Profile Image Section -->
+                          <div class="col-span-full">
+                              <div class="mt-2 flex items-center gap-x-3">
+                                  <img src="images/avatar_sample.png" alt="Logo" class="mb-2 w-24 h-24 text-gray-300">
+                                  <button class="py-1 px-6 text-black text-sm font-semibold uppercase rounded-[30px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-green-500 before:to-green-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[30px] hover:before:left-0">
+                                      Change
+                                  </button>
+                              </div>
+                          </div>
+      
+                          <!-- Personal Information Section -->
+                          <div class="mt-2 pb-12">
+                              <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+                              <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent email address where you can receive mail.</p>
+      
+                              <!-- Designation Dropdown -->
+                              <div class="mt-3 sm:col-span-3">
+                                  <label for="designation" class="block text-sm font-medium leading-6 text-gray-900">Designation</label>
+                                  <div class="mt-2">
+                                      <select id="designation" name="designation-role" autocomplete="designation-title" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-g-300 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                          <option>Admin</option>
+                                          <option>Warehouse Staff</option>
+                                          <option>Representative</option>
+                                      </select>
+                                  </div>
+                              </div>
+      
+                              <!-- Name Input Fields -->
+                              <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                  <div class="sm:col-span-3">
+                                      <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                                      <div class="mt-2">
+                                          <input type="text" name="first-name" placeholder="Jessa" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                      </div>
+                                  </div>
+      
+                                  <div class="sm:col-span-3">
+                                      <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                                      <div class="mt-2">
+                                          <input type="text" name="last-name" placeholder="De Reyes" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                      </div>
+                                  </div>
+                              </div>
+      
+                              <!-- Email and Phone Input Fields -->
+                              <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                  <div class="sm:col-span-3">
+                                      <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
+                                      <div class="mt-2">
+                                          <input type="text" name="email" placeholder="jessareyes@valenzuela.ph" id="email" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                      </div>
+                                  </div>
+      
+                                  <div class="sm:col-span-3">
+                                      <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Phone number</label>
+                                      <div class="mt-2">
+                                          <input type="text" name="phone" placeholder="+639188235476" id="phone" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                      </div>
+                                  </div>
+                              </div>
+      
+                              <!-- Username and Password Input Fields -->
+                              <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                  <div class="sm:col-span-3">
+                                      <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username/ID</label>
+                                      <div class="mt-2">
+                                          <input type="text" name="username" placeholder="CSWDADMIN0942" id="username" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                      </div>
+                                  </div>
+      
+                                  <div class="sm:col-span-3">
+                                      <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Change Password</label>
+                                      <div class="mt-2">
+                                          <input type="password" name="password" placeholder="*********" id="password" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                      </div>
+                                  </div>
+                              </div>
+      
+                          </div>
+      
+                          <!-- Office Details Section -->
+                          <div class="mt-7 col-span-full">
+                              <label for="about" class="block text-sm font-semibold leading-6 text-gray-900">Office Details</label>
+                          </div>
+      
+                          <!-- Office Details Input Fields -->
+                          <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                              <div class="sm:col-span-2 sm:col-start-1">
+                                  <label for="office-number" class="block text-sm font-medium leading-6 text-gray-900">Office Number</label>
+                                  <div class="mt-2">
+                                      <input type="text" name="office-number" id="office-number" placeholder="8352-1000 loc.1406 / 1407 / 1416 / 1129 / 1103 / 1105" autocomplete="address-level2" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                  </div>
+                              </div>
+      
+                              <div class="sm:col-span-2">
+                                  <label for="direct-line" class="block text-sm font-medium leading-6 text-gray-900">Direct Line</label>
+                                  <div class="mt-2">
+                                      <input type="text" name="direct-line" id="direct-line" placeholder="8277-3929" autocomplete="address-level1" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                  </div>
+                              </div>
+      
+                              <div class="sm:col-span-2">
+                                  <label for="fax-number" class="block text-sm font-medium leading-6 text-gray-900">Fax Number</label>
+                                  <div class="mt-2">
+                                      <input type="text" name="fax-number" id="fax-number" placeholder="3445-5437" autocomplete="postal-code" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                  </div>
+                              </div>
+      
+                              <div class="sm:col-span-2">
+                                  <label for="office-address" class="block text-sm font-medium leading-6 text-gray-900">Office Address</label>
+                                  <div class="mt-2">
+                                      <input type="text" name="office-address" id="office-address" placeholder="1st Floor Legislative Building, New City Government Complex MacArthur Highway, Barangay Karuhatan, Valenzuela City, Philippines 1440" autocomplete="postal-code" class="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                  </div>
+                              </div>
+                          </div>
+      
+                          <!-- Upload ID or Documents Section -->
+                          
+                          <div class="mt-2 col-span-full">
+                            <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Upload Your ID or Documents here</label>
+                                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                    <div class="text-center">
+                                        <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                                        </svg>
+
+                                <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                                  <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                        <span>Upload a file</span>
+                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                  </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+
+                                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                              </div>
+                            </div>
+                          </div>
+      
+                      <!-- Action Buttons Section -->
+                      <div class="mt-2 flex items-center justify-end gap-x-6">
+                        <a href="adminSettings.html">
+                          <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+                        </a>
+
+                        <a href="adminSettings.html">
+                          <button type="submit" class="rounded-md w-20 bg-green-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                        </a>
+
+                     </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  
+
+    <!-- Dropdown Menu Toggle Function -->
+<script>
+    // Toggle dropdown menu visibility
+    function toggleDropdown(type) {
+        // Toggle visibility for the specified dropdown
+        if (type === 'stocks') {
+            document.querySelector('#submenu-stocks').classList.toggle('hidden');
+            document.querySelector('#submenu-kitting').classList.toggle('hidden');
+            document.querySelector('#arrow-stocks').classList.toggle('rotate-0');
+        } else if (type === 'administrator') {
+            document.querySelector('#submenu-user-management').classList.toggle('hidden');
+            document.querySelector('#submenu-request-confirmation').classList.toggle('hidden');
+            document.querySelector('#arrow-administrator').classList.toggle('rotate-0');
+        }
+    }
+    </script>
+
+    <!-- Sidebar Functions -->
+    <script>
+        // Function to handle icon click
+        function handleIconClick() {
+            // Add functionality as needed
+        }
+
+        // Function to toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+    
+    </body>
+</html>

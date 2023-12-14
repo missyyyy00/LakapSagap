@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Donations</title>
+    </head>
+    <body>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    
+</head>
+
+<body class="bg-gray-200 font-[Roboto]">
+    <!-- Navigation Bar -->
+    <nav class="navbar flex justify-between items-center p-4 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hamburger Icon -->
+            <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars text-red-700" class="w-6 h-6 rounded-md"></i>
+            </span>
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+        </a>
+
+        <div class="flex items-center">
+            <!-- Notification Bell Icon -->
+            <div class="flex items-center rounded-md px-6 duration-300 cursor-pointer">
+                <i class="fa-regular fa-bell text-red-700" class="w-10 h-10 rounded-full"></i>
+            </div>
+
+            <!-- User Name and Role -->
+            <div class="ml-1 text-right">
+                <p class="text-sm mr-3">Jessa Reyes</p>
+                <p class="text-xs text-gray-500 mr-3">CSWD ADMIN</p>
+            </div>
+
+            <!-- Profile Avatar -->
+            <div class="flex items-center">
+                <img src="images/avatar_sample.png" alt="Profile Avatar" class="w-10 h-10 rounded-full">
+            </div>
+        </div>
+    </nav>
+
+        <!-- Sidebar -->
+        <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen">
+            <div class="text-gray-100 text-xl">
+                <div class="p-2.5 mt-1 flex items-center rounded-md ">
+                    <!-- Logo in Sidebar -->
+                    <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+                    <!-- Close Icon in Sidebar -->
+                </div>
+                <hr class="my-2 text-gray-600">
+    
+                <!-- Sidebar Menu -->
+                <div>
+                    <!-- Dashboard Link -->
+                    <a href="requestmainpage.html">
+                        <div
+                            class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                            <i class="fa-regular fa-envelope-open text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Request</span>
+                        </div>
+                    </a>
+                    
+    
+                    <!-- Request Link -->
+                    <a href="donations.html">
+                        <div
+                            class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                            <i class="fa-solid fa-box-open text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Donations</span>
+                        </div>
+                    </a>
+    
+                    <!-- Account Setting Link -->
+                    <a href="reqaccountsettings.html">
+                        <div
+                            class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                            <i class="fa-solid fa-gear text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Account Settings</span>
+                        </div>
+                    </a>
+    
+                    <!-- Logout Link -->
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                        <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-blue-700 group-hover:text-white"></i>
+                        <a href="index.html">
+                            <span class="text-[15px]  ml-4 text-blue-700 group-hover:text-white">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of Sidebar-->
+
+    <!-- New White Container -->
+    <div class="absolute mt-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl ml-4">
+        
+        <h2 class="text-2xl font-bold text-black mb-4">LIST OF DONATION HISTORY</h2>
+
+        <!-- Search Bar and Download File -->
+        <div class="flex items-center justify-between">
+            <!-- Search Bar -->
+            <div class="relative flex items-center mr-5">
+                <button type="button" class="absolute left-2">
+                    <i class="fa fa-search text-gray-500 ml-3"></i>
+                </button>
+                <input type="text" placeholder="Search"
+                    class="pl-12 pr-10 py-1 border rounded-md border-gray-300 focus:outline-none focus:border-blue-700">
+            </div>
+
+            <!-- Download Icon and Text -->
+            <div class="flex items-center">
+                <!-- Download Icon (Font Awesome) -->
+                <i class="fas fa-download text-blue-700 mr-2"></i>
+                <!-- Download Text -->
+                <a href="#" class="text-blue-700 mr-2">Download File</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered White Container -->
+    <div class="absolute top-48 mt-36 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-gray-300 border p-6 pt-2 rounded-lg shadow-2xl shadow-blue-200 blue-shadow w-full max-w-4xl ml-4">
+
+        <p class="text-base text-black mb-2">Recent History</p>
+
+        <!-- Light Gray Container with Gray Borders -->
+        <div class="bg-gray-100 border border-gray-300 p-6 rounded-lg mb-4">
+
+            <div class="flex items-center justify-between">
+                <!-- Approval Label and Check Icon -->
+                <div class="flex items-center justify-between">
+                    <i class="fas fa-check-circle text-green-500"></i>
+                    <span class="text-green-500 font-bold ml-4">APPROVED</span>
+                </div>
+
+                <!-- Request Elements -->
+                <div class="flex items-center justify-center ml-4">
+
+
+                    <!-- Item Label and Text -->
+                    <p class="font-bold">Item:</p>
+                    <p class="ml-2">Food Pack</p>
+                    <!-- Divider -->
+                    <div class="mx-4 border-l border-black border-solid font-bold h-4"></div>
+                    <!-- Quantity Label and Text -->
+                    <p class="font-bold">Quantity:</p>
+                    <p class="ml-2">300</p>
+                    <!-- Divider -->
+                    <div class="mx-4 border-l border-black border-solid font-bold h-4"></div>
+                    <!-- Date Requested Label and Text -->
+                    <p class="font-bold">Date Requested:</p>
+                    <p class="ml-2 mr-10">October 20, 2023</p>
+
+                </div>
+    
+                <!-- See More Text -->
+                <a href="#" class="text-blue-500 hover:underline">See More</a>
+            </div>
+
+        </div>
+
+        <!-- Grey Divider -->
+        <hr class="border-t border-gray-400 mb-4">
+
+        <!-- Light Gray Container with Gray Borders -->
+        <div class="bg-gray-100 border border-gray-300 p-6 rounded-lg mb-4">
+            
+            <div class="flex items-center justify-between">
+                <!-- Approval Label and Check Icon -->
+                <div class="flex items-center justify-between">
+                    <i class="fas fa-check-circle text-green-500"></i>
+                    <span class="text-green-500 font-bold ml-4">APPROVED</span>
+                </div>
+
+                <!-- Request Elements -->
+                <div class="flex items-center justify-center ml-4">
+
+
+                    <!-- Item Label and Text -->
+                    <p class="font-bold">Item:</p>
+                    <p class="ml-2">Food Pack</p>
+                    <!-- Divider -->
+                    <div class="mx-4 border-l border-black border-solid font-bold h-4"></div>
+                    <!-- Quantity Label and Text -->
+                    <p class="font-bold">Quantity:</p>
+                    <p class="ml-2">300</p>
+                    <!-- Divider -->
+                    <div class="mx-4 border-l border-black border-solid font-bold h-4"></div>
+                    <!-- Date Requested Label and Text -->
+                    <p class="font-bold">Date Requested:</p>
+                    <p class="ml-2 mr-10">October 20, 2023</p>
+
+                </div>
+    
+                <!-- See More Text -->
+                <a href="#" class="text-blue-500 hover:underline">See More</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        // Toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+    </body>
+</html>

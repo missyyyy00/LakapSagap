@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  </head>
+
+<body>
+    <div class = "font-[Roboto]">
+    <!-- Navigation start -->
+    <nav class="navbar top-0 left-0 right-0 flex justify-between items-center p-1 bg-white shadow">
+      <a href="#" class="flex items-center">
+          <!-- Hidden Hamburger Icon -->
+          <span class="absolute text-white text-2xl top-6 left-4 cursor-pointer" onclick="Openbar()">
+              <i class="fa-solid fa-bars-staggered text-red-700"></i>
+          </span>
+        </a>
+
+          <!-- Logo -->
+          <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 ml-10 mr-auto">
+      
+      <div class="flex items-center">
+          <div class="flex flex-shrink-0 items-center ml-auto">
+             <!-- Notification Bell Icon -->
+                <button class="relative p-2 text-red-700 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full mr-2">
+                  <span class="sr-only">Notifications</span>
+                  <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
+                  <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
+                  <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                </button>
+              <!-- Profile Avatar -->
+              <a href="adminSettings.html">
+              <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
+                <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+                  <span class="font-semibold">Jessa De Reyes</span>
+                  <span class="text-sm text-gray-600">CSWD ADMIN</span>
+                </div>
+                <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                  <img src="images/avatar_sample.png" alt="user profile photo" class="h-full w-full object-cover">
+                </span>
+              </button>
+              </a>
+          </div>
+  </nav>
+  <!-- Navigation End -->
+
+  <!-- Sidebar Menu Start -->
+  <div class="sidebar z-50 fixed inset-y-0 left-0 top-0 bottom-0 lg:left-0 left-[-300px]  duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen lg:block">
+    <div class="text-gray-100 text-xl">
+        <div class="p-2.5 mt-1 flex items-center rounded-md ">
+            <!-- Logo in Sidebar -->
+            <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+            <!-- Close Icon in Sidebar -->
+            <i class="fa-solid fa-xmark ml-4 mb-10 cursor-pointer lg:hidden text-red-700" onclick="Openbar()"></i>
+        </div>
+        
+        <hr class="my-2 text-gray-600">
+        <div>
+          <!-- Dashboard Link -->
+          <a href="admindashboard.html">
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-house text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Dashboard</span>
+            </div>
+          </a>
+
+            <!-- Request Link -->
+          <a href="adminRequest.html">
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+                <i class="fa-solid fa-hand-holding-hand text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Request</span>
+            </div>
+          </a>
+
+            <!-- Stocks Link -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+              <i class="fa-solid fa-warehouse text-red-700 group-hover:text-white"></i>
+              <div class="flex justify-between w-full items-center" onclick="toggleDropdown('stocks')">
+                  <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Warehouse</span>
+                  <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-stocks">
+                      <i class="fa-solid fa-angle-up"></i>
+                  </span>
+              </div>
+            </div>
+
+          <!-- Stocks Dropdown Content -->
+          <a href="adminStockManage.html"> 
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-stocks">
+              <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                    Stock Management
+                </h1>
+            </div>
+          </a>
+
+          <a href="adminKiting.html"> 
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto hidden" id="submenu-kitting">
+              <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                    Kitting
+                </h1>
+            </div>
+          </a>
+
+          <!-- Administrator Dropdown -->
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black">
+              <i class="fa-solid fa-user-shield text-red-700 group-hover:text-white"></i>
+                <div class="flex justify-between w-full items-center" onclick="toggleDropdown('administrator')">
+                    <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Administrator</span>
+                    <span class="text-sm rotate-180 text-red-700 group-hover:text-white" id="arrow-administrator">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </span>
+                </div>
+            </div>
+
+          <!-- Administrator Dropdown Content -->
+          <a href="adminControl.html">
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto" id="submenu-user-management">
+              <h1 class="cursor-pointer p-2 text-white group-hover:text-white rounded-md mt-1 bg-red-700 ">
+                    User Management
+                </h1>
+            </div>
+          </a>
+
+          <a href="adminConfirm.html"> 
+            <div class="group leading-7 text-left text-sm font-regular mt-2 w-4/5 mx-auto" id="submenu-request-confirmation">
+              <h1 class="cursor-pointer p-2 text-red-700 group-hover:text-white rounded-md mt-1 hover:bg-black">
+                    Request Confirmation
+                </h1>
+            </div>
+          </a>
+
+            <!-- History Link -->
+          <a href="adminHistory.html"> 
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+              <i class="fa-solid fa-clipboard text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">History</span>
+            </div>
+          </a>
+
+            <!-- Account Setting Link -->
+          <a href="adminSettings.html"> 
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-black">
+              <i class="fa-solid fa-gear text-red-700 group-hover:text-white"></i>
+                <span class="text-[15px] ml-4 text-red-700 group-hover:text-white">Account Setting</span>
+            </div>
+          </a>
+
+            <!-- Logout Link -->
+          <a href="index.html">
+            <div class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-black" >
+              <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-red-700 group-hover:text-white"></i>
+                    <span class="text-[15px]  ml-4 text-red-700 group-hover:text-white">Logout</span>
+            </div>
+          </a>
+
+        </div>
+    </div>
+  </div>
+  <!-- end of sidebar -->
+        
+    <!-- Main Content-->
+        <div class="p-2 w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 ">
+          <div class="ml-2 grid grid-cols-1 lg:grid-cols-1 gap-3 mb-6 p-4 gap-10">
+            <div class="p-4 w-full bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+              <h2 class="text-2xl font-medium mb-2 ml-2">User Management Settings</h2>
+
+            <!-- component -->
+            <form class="flex flex-col sm:flex-row justify-between">
+
+              <div class="max-w-xl">
+                  <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 space-x-0 sm:space-x-4 mt-3 ml-2">
+                      <div class="flex rounded-md overflow-hidden w-full sm:w-80">
+
+                         <!-- search section-->
+                          <input type="text" placeholder="Search..." class="w-full bg-gray-100 rounded-md border-b-gray-50 rounded-r-none pl-4" />
+                          <button class="bg-indigo-600 text-white px-4 text-sm font-semibold py-1 rounded-r-md">
+                               <!-- just icon button-->
+                            <svg class="text-white h-3 w-3 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                                  viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                                  width="512px" height="512px">
+                                  <path
+                                      d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                            </svg>
+                          </button>
+                           <!-- clear button-->
+                          <button class="bg-white px-6 text-xs font-semibold py-2 rounded-md">Clear</button>
+                      </div>
+                  </div>
+              </div>
+
+             <!-- button for add user -->
+              <a class="rounded-lg w-full sm:w-36 h-8 cursor-pointer hover:bg-green-800 duration-300 flex items-center justify-between border border-green-500 bg-green-500 group hover:bg-green-500 active:bg-green-500 active:border-green-500 mt-3 sm:mt-0" href="addUser.html">
+                <span class="text-white font-regular ml-8">Add User</span>
+                <svg class="svg w-8 text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="12" x2="12" y1="5" y2="19"></line>
+                    <line x1="5" x2="19" y1="12" y2="12"></line>
+                </svg>
+              </a>
+
+            </form><!-- just dont delete this -->
+            </form>
+
+        <!-- table content -->
+          <div class="w-full px-3 py-4 flex justify-center flex overflow-x-auto">
+            
+              <table class="w-full lg:max-w-screen-2xl text-md bg-white shadow-md rounded mb-4">
+                <thead>
+                  <tr class="text-white bg-gradient-to-r from-indigo-600 to-blue-700"> <!-- column names -->
+                    <th class="text-left p-1 px-2">Full Name</th>
+                    <th class="text-left p-1 px-2">Organization</th>
+                    <th class="text-left p-1 px-2">Email</th>
+                    <th class="text-left p-1 px-2">Phone No.</th>
+                    <th class="text-left p-1 px-2">Designation</th>
+                    <th class="p-1 px-2 ml-4">Actions</th>
+                  </tr>
+                  
+                  <!-- columns content -->
+                  <tr class="border-b hover:bg-blue-100 bg-gray-100">
+                    <td class="p-1 px-2"><input type="text" value="Jessa Reyes" class="bg-transparent"></td>
+                    <td class="p-1 px-2"><input type="text" value="CSWD ADMIN" class="bg-transparent"></td>
+                    <td class="p-1 px-2"><input type="text" value="jessareyes@valenzuela.ph" class="bg-transparent text-xs w-48"></td>
+                    <td class="text-center p-1 px-2"><input type="text" value="+639082335423" class="bg-transparent"></td>
+                    <td class="p-1 px-2">  <!-- dropdown content -->
+                      <select value="eme" class="bg-transparent text-left">
+                        <option value="admin" class="text-left">admin</option>
+                        <option value="warehouse_staff">warehouse staff</option>
+                        <option value="representative">representative</option>
+                      </select>
+                    </td>
+
+                  <!-- actions button -->
+                    <td class="mt-2 mb-2 ml-9 flex class=p-2 px-3">
+                      <button id="openModal" type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </button>
+                      <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                        <i class="fa-regular fa-trash-can"></i>
+                      </button>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+           <!-- end of table -->
+
+            <!-- Pagination section -->
+          <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+            <div class="flex flex-1 justify-between sm:hidden">
+                <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
+                <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
+            </div>
+
+              <div class="hidden sm:flex sm:flex-1 sm:items-center lg:justify-end sm:justify-between">
+                <div class="pagination-container relative z-40">
+                  <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                      <a href="#" class="pagination-link inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                          <span class="sr-only">Previous</span>
+                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                          </svg>
+                      </a>
+
+                      <!-- numbers of pages -->
+                      <a href="#" aria-current="page" class="pagination-link z-10 inline-flex items-center bg-green-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">1</a>
+                      <a href="#" class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+                      <a href="#" class="pagination-link hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+                      <span class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+              
+                      <a href="#" class="pagination-link inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                          <span class="sr-only">Next</span>
+                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                          </svg>
+                      </a>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      
+      <!-- Edit user profile modal -->
+      <div id="formModal" class="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto hidden">
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="bg-white p-8 rounded-md max-w-3xl mx-auto">
+                <form>
+                    <div class="space-y-8">
+                        <!-- Account Settings -->
+                        <div>
+                            <h2 class="text-3xl font-semibold leading-7 text-gray-900">Account Settings</h2>
+                            <div class="mt-2 flex items-center gap-x-3">
+                                <!-- Profile Image -->
+                                <img src="images/avatar_sample.png" alt="Logo" class="w-24 h-24 text-gray-300">
+                                <button id="closeModal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none">
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                                <!-- Change Button -->
+                                <button class="py-1 px-6 text-black text-sm font-semibold uppercase rounded-[30px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:bg-green-700 hover:shadow-lg active:scale-90 before:absolute before:top-0 before:bg-gradient-to-r before:from-green-500 before:to-green-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[30px] hover:before:left-0">
+                                    Change
+                                </button>
+                            </div>
+                        </div>
+    
+                        <!-- Personal Information -->
+                        <div class="mt-2 pb-4">
+                          <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+                         
+                        <!-- Designation Dropdown -->
+                        <div class="mt-3 sm:col-span-3">
+                          <label for="designation" class="block text-sm font-medium leading-6 text-gray-900">Designation</label>
+                          <div class="mt-2">
+                            <select id="designation" name="designation-role" autocomplete="designation-title" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-g-300 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                              <option>Admin</option>
+                              <option>Warehouse Staff</option>
+                              <option>Representative</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <!-- First Name and Last Name Input Fields -->
+                        <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div class="sm:col-span-3">
+                              <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                                  <div class="mt-2">
+                                      <input type="text" name="first-name" placeholder="Jessa" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                  </div>  
+                            </div>
+                    
+                            <div class="sm:col-span-3">
+                              <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                                  <div class="mt-2">
+                                      <input type="text" name="last-name" placeholder="De Reyes" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                  </div>
+                            </div>
+                        </div>
+
+                        <!-- Email and Phone Number Input Fields -->
+                        <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-3">
+                                  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="first-name" placeholder="jessareyes@valenzuela.ph" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    </div>
+                                </div>
+              
+                                <div class="sm:col-span-3">
+                                  <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Phone number</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="last-name" placeholder="+639188235476" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- Username/ID and Password Input Fields -->
+                        <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-3">
+                                  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Username/ID</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="first-name" placeholder="CSWDADMIN0942" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    </div>
+                                </div>
+                        
+                                <div class="sm:col-span-3 mb-5">
+                                  <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="last-name" placeholder="*********" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- Attachments --> 
+                        <b class="mt-5 text-sm font-bold leading-6 text-gray-900">Attachments</b>
+                        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                     
+                        <dd class="mt-2 text-sm text-gray-900 space-y-6 w-80 sm:col-span-2 sm:mt-0">
+                          <!-- Attachment 1 --> 
+                            <div class="flex items-center  justify-between py-4 pl-2 pr-5 text-sm leading-6">
+                                <div class="flex w-0 flex-1 items-center ">
+                                    <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                  
+                                  <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                      <span class="truncate font-medium">CSWD ID</span>
+                                      <span class="flex-shrink-0 text-gray-400 ">2.4mb</span>
+                                  </div>
+                                </div>
+                              <!-- download icon --> 
+                              <div class="ml-4 flex-shrink-0 ">
+                                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                  <i class="fa-solid fa-download mr-8"></i>
+                                </a>
+                               <!-- trashcan icon --> 
+                                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                  <i class="fa-regular fa-trash-can"></i>
+                                </a>
+                            </div>
+                          </div>
+
+                          <!-- Attachment 2 -->     
+                          <div class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                              <div class="flex w-0 flex-1 items-center">
+                                  <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                      <path fill-rule="evenodd"
+                                          d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                          clip-rule="evenodd" />
+                                  </svg>
+                                  <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                      <span class="truncate font-medium">National ID</span>
+                                      <span class="flex-shrink-0 text-gray-400">4.5mb</span>
+                                  </div>
+                              </div>
+                              <div class="ml-4 flex-shrink-0 ">
+                                <!-- download icon --> 
+                                  <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                    <i class="fa-solid fa-download mr-8"></i>
+                                  </a>
+                                  <!-- trashcan icon --> 
+                                  <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                  </a>
+                              </div>
+                          </div>
+                      </dd>
+                     
+                       <!-- Upload ID/Docu section --> 
+                      <div class="col-span-full">
+                        <label for="cover-photo" class="block text-sm font-bold leading-6 text-gray-900">Add ID/Documents</label>
+                        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        
+                          <!-- Just icon --> 
+                          <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                            </svg>
+                          <!-- contents -->
+                            <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                              <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                              </label>
+                              <p class="pl-1">or drag and drop</p>
+                            </div>
+                            <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+            </div>
+
+            <!-- buttons -->
+                <div class="mt-2 flex items-center justify-end gap-x-6">
+                  <button id="cancelButton" type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+                  
+                  <a href="adminControl.html">
+                      <button type="submit" class="rounded-md w-20 bg-green-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                      Save</button>
+                  </a>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- Dropdown Menu Toggle Function -->
+    <script>
+        // Toggle dropdown menu visibility
+        function toggleDropdown(type) {
+            // Toggle visibility for the specified dropdown
+            if (type === 'stocks') {
+                document.querySelector('#submenu-stocks').classList.toggle('hidden');
+                document.querySelector('#submenu-kitting').classList.toggle('hidden');
+                document.querySelector('#arrow-stocks').classList.toggle('rotate-0');
+            } else if (type === 'administrator') {
+                document.querySelector('#submenu-user-management').classList.toggle('hidden');
+                document.querySelector('#submenu-request-confirmation').classList.toggle('hidden');
+                document.querySelector('#arrow-administrator').classList.toggle('rotate-0');
+            }
+        }
+    </script>
+
+    <!-- Sidebar Functions -->
+    <script>
+        // Function to handle icon click
+        function handleIconClick() {
+            // Add functionality as needed
+        }
+
+        // Function to toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+
+    <!-- Include external script file -->
+    <script src="script.js"></script>
+
+    <!-- Inline script to handle cancel button click -->
+    <script>
+        // Add event listener to the cancel button
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            // Add 'hidden' class to hide the form modal
+            document.getElementById('formModal').classList.add('hidden');
+        });
+    </script>
+
+  </body>
+</html>
