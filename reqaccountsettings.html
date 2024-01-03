@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Account Settings</title>
+    </head>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    
+
+
+<body class="bg-gray-200 font-[Roboto]">
+    <!-- Navigation Bar -->
+    <nav class="navbar flex justify-between items-center p-4 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hamburger Icon -->
+            <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars text-red-700" class="w-6 h-6 rounded-md"></i>
+            </span>
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+        </a>
+
+        <div class="flex items-center">
+           
+
+            <!-- Notification Bell Icon -->
+            <div class="flex items-center rounded-md px-6 duration-300 cursor-pointer">
+                <i class="fa-regular fa-bell text-red-700" class="w-10 h-10 rounded-full"></i>
+            </div>
+
+
+
+            <!-- User Name and Role -->
+            <div class="ml-1 text-right">
+                <p class="text-sm mr-3">Jessa Del Reyes</p>
+                <p class="text-xs text-gray-500 mr-3">CSWD ADMIN</p>
+            </div>
+
+            <!-- Profile Avatar -->
+            <div class="flex items-center">
+                <img src="images/avatar_sample.png" alt="Profile Avatar" class="w-10 h-10 rounded-full">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen">
+        <div class="text-gray-100 text-xl">
+            <div class="p-2.5 mt-1 flex items-center rounded-md ">
+                <!-- Logo in Sidebar -->
+                <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+                <!-- Close Icon in Sidebar -->
+            </div>
+            <hr class="my-2 text-gray-600">
+
+            <!-- Sidebar Menu -->
+            <div>
+                <!-- Dashboard Link -->
+                <a href="requestmainpage.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                        <i class="fa-regular fa-envelope-open text-blue-700 group-hover:text-white"></i>
+                        <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Request</span>
+                    </div>
+                </a>
+
+                <!-- Request Link -->
+                <a href="donations.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                        <i class="fa-solid fa-box-open text-blue-700 group-hover:text-white"></i>
+                        <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Donation History</span>
+                    </div>
+                </a>
+
+                <!-- Account Setting Link -->
+                <a href="reqaccountsettings.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                        <i class="fa-solid fa-gear text-blue-700 group-hover:text-white"></i>
+                        <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Account Settings</span>
+                    </div>
+                </a>
+
+                <!-- Logout Link -->
+                <a href="index.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                        <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px]  ml-4 text-blue-700 group-hover:text-white">Logout</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+   <!-- main content -->
+   <div class="p-2 w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 ">
+    <div class="ml-7 grid bg-white round grid-cols-1 lg:grid-cols-1 gap-6 mb-6 p-4 gap-10 border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md relative">
+      <div class="flex justify-between items-center mb-4">
+      <!-- page title -->
+        <h1 class="text-2xl font-semibold leading-7 text-gray-700">Account</h1>
+        
+          <!-- edit button --->
+          <a href="repAccountEdit.html">
+          <button class="bg-emerald-950 text-white border border-green-400 border-b-4 font-medium px-2 py-1 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group text-sm">
+            <i class="fa-regular fa-pen-to-square text-white mr-1 ml-1"></i> Edit Account
+          </button>
+        </a>
+      </div>
+
+      <!-- account details --->
+      <div class="flex items-center">
+        <span class="h-36 w-36 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden inline-block">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoVMBo2G4vJlYXv2IoUnajGHqa4CvJFPdwx_NPPWuG1qgtmNWON6pK1Yx4wFvWQ9SkrtM" alt="user profile photo" class="h-full w-full object-cover"> 
+        </span>
+
+         <!-- names --->
+        <div class="flex flex-col">
+          <p class="max-w-3xl text-3xl ml-5 text-gray-500">Dave Pascual</p>
+          <b class="max-w-3xl ml-5 text-gray-500">Barangay Representative</b>
+        </div>
+      </div>
+      <div class=" border-t border-gray-100">
+
+        <!-- Profile details--->
+        <dl class="divide-y divide-gray-100">
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Full name</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Dave Pascual</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Designation</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Barangay Secretary</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Email Address</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">davepascual@valenzuela.ph</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Phone Number</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">+639188235476</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Username/ID</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Barangay123</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Password</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">********</dd>
+          </div>
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-bold leading-6 text-gray-900">Office Details</dt>
+              <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                Office Number:  8352-1000 loc.1406 / 1407 / 1416 / 1129 / 1103 / 1105 <br>
+                Direct Line: 8277-3929 <br>
+                Fax Number: 3445-5432 <br>
+                Office Address: 1st Floor Legislative Building,
+                New City Government Complex
+              MacArthur Highway, Barangay Karuhatan,
+              Valenzuela City, Philippines 1440
+              </dd>
+          </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+    
+
+    <script>
+        // Toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+    </body>
+</html>
