@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Donation History</title>
+    </head>
+    <body>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    
+</head>
+
+<body class="bg-gray-200 font-[Roboto]">
+    <!-- Navigation Bar -->
+    <nav class="navbar flex justify-between items-center p-4 bg-white shadow">
+        <a href="#" class="flex items-center">
+            <!-- Hamburger Icon -->
+            <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+                <i class="fa-solid fa-bars text-red-700" class="w-6 h-6 rounded-md"></i>
+            </span>
+            <!-- Logo -->
+            <img src="images/colored_wo_bg.png" alt="Logo" class="w-19 h-11 mr-auto">
+        </a>
+
+        <div class="flex items-center">
+            <!-- Notification Bell Icon -->
+            <div class="flex items-center rounded-md px-6 duration-300 cursor-pointer">
+                <i class="fa-regular fa-bell text-red-700" class="w-10 h-10 rounded-full"></i>
+            </div>
+
+            <!-- User Name and Role -->
+            <div class="ml-1 text-right">
+                <p class="text-sm mr-3">Jessa Reyes</p>
+                <p class="text-xs text-gray-500 mr-3">CSWD ADMIN</p>
+            </div>
+
+            <!-- Profile Avatar -->
+            <div class="flex items-center">
+                <img src="images/avatar_sample.png" alt="Profile Avatar" class="w-10 h-10 rounded-full">
+            </div>
+        </div>
+    </nav>
+
+        <!-- Sidebar -->
+        <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-white shadow h-screen">
+            <div class="text-gray-100 text-xl">
+                <div class="p-2.5 mt-1 flex items-center rounded-md ">
+                    <!-- Logo in Sidebar -->
+                    <img src="images/colored_wo_bg.png" alt="Icon" style="width: 220px; height: 80px;">
+                    <!-- Close Icon in Sidebar -->
+                </div>
+                <hr class="my-2 text-gray-600">
+    
+                <!-- Sidebar Menu -->
+                <div>
+                    <!-- Dashboard Link -->
+                    <a href="requestmainpage.html">
+                        <div
+                            class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                            <i class="fa-regular fa-envelope-open text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Request</span>
+                        </div>
+                    </a>
+                    
+    
+                    <!-- Request Link -->
+                    <a href="donations.html">
+                        <div
+                            class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                            <i class="fa-solid fa-box-open text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Donation History</span>
+                        </div>
+                    </a>
+    
+                    <!-- Account Setting Link -->
+                    <a href="reqaccountsettings.html">
+                        <div
+                            class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-700">
+                            <i class="fa-solid fa-gear text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px] ml-4 text-blue-700 group-hover:text-white">Account Settings</span>
+                        </div>
+                    </a>
+    
+                    <!-- Logout Link -->
+                    <a href="index.html">
+                    <div
+                        class="group p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-700">
+                        <i class="fa-solid fa-right-from-bracket fa-rotate-180  text-blue-700 group-hover:text-white"></i>
+                            <span class="text-[15px]  ml-4 text-blue-700 group-hover:text-white">Logout</span>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+        <!--End of Sidebar-->
+
+        <div class="p-2 w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main sm:p-8 ">
+            <div class="ml-4 grid grid-cols-1 lg:grid-cols-1 gap-6 mb-6 p-4">
+                <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md shadow-5xl shadow-blue-100 blue-shadow">
+                    <div class="flex justify-between">
+                        <b class="text-gray-700 text-2xl mt-3 ml-4">Request History</b>
+                        
+                        <!-- Button for filter-->
+                        
+                    </div>
+                      
+                    <!--table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full min-w-[540px]">
+                            <thead>  <!--columns -->
+                                <tr>
+                                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left"></th>
+                                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left">Request No.</th>
+                                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Type of Kits</th>
+                                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left rounded-tl-md rounded-bl-md">Quantity</th>
+                                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left">Date Requested</th>
+                                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left">Date Received</th>
+                                    <th class="text-[12px] uppercase tracking-wide font-semibold text-gray-400 py-2 px-4 text-left"></th>
+                                    <div class="border-b border-gray-300 my-4">
+                                </tr>
+                            </thead>
+                    </div>
+                           <!--content of tables -->
+                            <tbody class="mt-2">
+                              <!--1st list -->
+                              <tr class="mb-4 py-2">
+
+                                    <td class="py-5 px-4 bg-gray-50 rounded-md">
+                                        <div class="flex items-center">
+                                            <i class="fa-solid text-green-600 mr-2 fa-circle-check"></i> <span class="text-green-600 text-sm font-semibold ">APPROVED</span>
+                                        </div>
+                                    </td>   
+
+                                    <td class="py-5 px-4 bg-gray-50 rounded-md">
+                                        <div class="flex items-center ">
+                                        <span class="text-gray-600 text-sm font-semibold ">0001</span>
+                                        </div>
+                                    </td>
+            
+                                    <td class="py-5 px-4 bg-gray-50 rounded-md">
+                                        <div class="flex items-center ">
+                                          <span class="text-gray-600 text-sm font-semibold ">Food Packs</span>
+                                        </div>
+                                    </td>
+            
+                                    <td class="py-2 px-4 bg-gray-50 rounded-md">
+                                      
+                                      <span class="text-gray-600 text-sm font-medium">300</span>
+                                    
+                                    </td>
+            
+                                    <td class="py-2 px-4 bg-gray-50 rounded-md">
+                                      <span class="text-gray-600 text-sm font-medium ">October 23, 2023</span>
+                                    </td>
+            
+                                    <td class="py-2 px-4 bg-gray-50 rounded-md">
+                                        <span class="text-gray-600 text-sm font-regular ">October 25, 2025</span>
+                                    </td>
+            
+                                    <td class="py-2 px-4 bg-gray-50 rounded-md text-blue-700 cursor-pointer">
+                                        <a href="">
+                                          <button type="button" class="mr-3 inline-block text-white bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out rounded-md hover:bg-neutral-100 hover:text-blue-700 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                                          <b>View details</b>
+                                        </a>
+                                          </button>
+                                          <i class="ml-5 mr-2 fa-solid fa-download text-blue-700"></i> Download
+                                    </td>
+                                </tr>
+                                
+                                               <!--2nd list -->
+                                         
+                                               <tr class="border-b border-b-gray-300">
+
+                                                <td class="py-5 px-4 rounded-md">
+                                                    <div class="flex items-center">
+                                                        <i class="fa-solid text-green-600 mr-2 fa-circle-check"></i> <span class="text-green-600 text-sm font-semibold ">APPROVED</span>
+                                                    </div>
+                                                </td>  
+            
+                                                <td class="py-5 px-4">
+                                                    <div class="flex items-center ">
+                                                    <span class="text-gray-600 text-sm font-semibold ">0002</span>
+                                                    </div>
+                                                </td>
+            
+                                                <td class="py-5 px-4">
+                                                    <div class="flex items-center">
+                                                        
+                                                      <span class="text-gray-600 text-sm font-semibold ">Family Kit<br>Kitchen Kit</span>
+                                                    </div>
+                                                </td>
+                        
+                                                <td class="py-2 px-4 border-b border-b-gray-300">                       
+                                                    <span class="text-gray-600 text-sm font-regular ">125<br>125</span>
+                                                </td>
+                        
+                                                <td class="py-2 px-4 border-b border-b-gray-300">
+                                                  <span class="text-gray-600 text-sm font-medium ">November 11, 2023</span>
+                                                </td>
+                        
+                                                <td class="py-2 px-4 border-b border-b-gray-300">
+                                                    <span class="text-gray-600 text-sm font-regular ">November 15, 2023</span>
+                                                </td>
+                        
+                                                <td class="py-2 px-4 rounded-md text-blue-700 cursor-pointer">
+                                                    <a href="">
+                                                      <button type="button" class="mr-3 inline-block text-white bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out rounded-md hover:bg-neutral-100 hover:text-blue-700 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                                                      <b>View details</b>
+                                                    </a>
+                                                      </button>
+                                                      <i class="ml-5 mr-2 fa-solid fa-download text-blue-700"></i> Download
+                                                </td>
+                                            </tr>
+                            </tbody>
+                        </table>
+                        <!--end of table -->
+                                                           <!-- pagination section --> 
+                                                           <div class="flex items-center justify-between  bg-white px-4 py-3 sm:px-6">
+                                                            <div class="flex flex-1 justify-between sm:hidden">
+                                        
+                                                              <!-- pagination links for small device --> 
+                                                              <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
+                                                              <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
+                                                            </div>
+                                              
+                                                            <div class="hidden sm:flex sm:flex-1 sm:items-center lg:justify-end sm:justify-between">
+                                                              <div class="pagination-container relative z-40">
+                                                                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                                        
+                                                                  <!-- pagination links for large device--> 
+                                                                    <a href="#" class="pagination-link inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                                                                        <span class="sr-only">Previous</span>
+                                                                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                                            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </a>
+                                                            
+                                                                    <a href="#" aria-current="page" class="pagination-link z-10 inline-flex items-center bg-blue-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">1</a>
+                                                                    <a href="#" class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+                                                                    <a href="#" class="pagination-link hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+                                                                    <span class="pagination-link inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+                                                            
+                                                                    <a href="#" class="pagination-link inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                                                                        <span class="sr-only">Next</span>
+                                                                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                                                                        </svg>
+                                                                    </a>
+                                                                </nav>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                    </div>
+              </div>
+               </div>
+            
+
+
+    <script>
+        // Toggle sidebar visibility
+        function Openbar() {
+            document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+        }
+    </script>
+    </body>
+</html>
